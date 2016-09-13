@@ -248,7 +248,7 @@ class GeoJSONTile extends Tile {
   }
 
   _processTileData(data) {
-    console.time(this._tile);
+    // console.time(this._tile);
 
     // Using this creates a huge amount of memory due to the quantity of tiles
     this._geojsonLayer = GeoJSONLayer(data, this._options).addTo(this._world);
@@ -314,7 +314,7 @@ class GeoJSONTile extends Tile {
     // this._mesh.add(mesh);
 
     this._ready = true;
-    console.timeEnd(this._tile);
+    // console.timeEnd(this._tile);
   }
 
   _abortRequest() {

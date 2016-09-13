@@ -20,6 +20,8 @@ class World extends EventEmitter {
       postProcessing: false
     };
 
+    this.version = '1.0 build 22 [bd]';
+
     this.options = extend({}, defaults, options);
 
     this._layers = [];
@@ -34,7 +36,7 @@ class World extends EventEmitter {
     this._pause = false;
 
     // Kick off the update and render loop
-    this._update();
+    // this._update();
   }
 
   _initContainer(domId) {
@@ -42,14 +44,14 @@ class World extends EventEmitter {
   }
 
   _initAttribution() {
-    var message = '<a href="http://vizicities.com" target="_blank">Powered by ViziCities</a>';
+    // var message = '<a href="http://vizicities.com" target="_blank">Powered by ViziCities</a>';
 
-    var element = document.createElement('div');
-    element.classList.add('vizicities-attribution');
+    // var element = document.createElement('div');
+    // element.classList.add('vizicities-attribution');
 
-    element.innerHTML = message;
+    // element.innerHTML = message;
 
-    this._container.appendChild(element);
+    // this._container.appendChild(element);
   }
 
   _initEngine() {
@@ -105,14 +107,14 @@ class World extends EventEmitter {
   }
 
   _update() {
-    if (this._pause) {
-      return;
-    }
+    // if (this._pause) {
+    //   return;
+    // }
 
     var delta = this._engine.clock.getDelta();
 
     // Once _update is called it will run forever, for now
-    window.requestAnimationFrame(this._update.bind(this));
+    // window.requestAnimationFrame(this._update.bind(this));
 
     // Update controls
     this._controls.forEach(controls => {
@@ -122,6 +124,10 @@ class World extends EventEmitter {
     this.emit('preUpdate', delta);
     this._engine.update(delta);
     this.emit('postUpdate', delta);
+  }
+
+  update() {
+    this._update();
   }
 
   // Set world view
@@ -266,12 +272,12 @@ class World extends EventEmitter {
   }
 
   stop() {
-    this._pause = true;
+    // this._pause = true;
   }
 
   start() {
-    this._pause = false;
-    this._update();
+    // this._pause = false;
+    // this._update();
   }
 
   // Destroys the world(!) and removes it from the scene and memory
