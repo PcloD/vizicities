@@ -5,8 +5,10 @@ import THREE from 'three';
 // TODO: Make sure nothing is left behind in the heap after calling destroy()
 
 class ImageTile extends Tile {
-  constructor(quadcode, path, layer) {
+
+  constructor(quadcode, path, layer, options) {
     super(quadcode, path, layer);
+    this.options = options;
   }
 
   // Request data for the tile
@@ -32,7 +34,6 @@ class ImageTile extends Tile {
 
   _createMesh() {
     // Something went wrong and the tile
-    //
     // Possibly removed by the cache before loaded
     if (!this._center) {
       return;
@@ -40,29 +41,7 @@ class ImageTile extends Tile {
 
     var mesh = new THREE.Object3D();
     var geom = new THREE.PlaneBufferGeometry(this._side, this._side, 1);
-
-    var material;
-    if (!this._world._environment._skybox) {
-      material = new THREE.MeshBasicMaterial({
-        depthWrite: false
-      });
-
-      // var material = new THREE.MeshPhongMaterial({
-      //   depthWrite: false
-      // });
-    } else {
-      // Other MeshStandardMaterial settings
-      //
-      // material.envMapIntensity will change the amount of colour reflected(?)
-      // from the environment map – can be greater than 1 for more intensity
-
-      material = new THREE.MeshStandardMaterial({
-        depthWrite: false
-      });
-      material.roughness = 1;
-      material.metalness = 0.1;
-      material.envMap = this._world._environment._skybox.getRenderTarget();
-    }
+    var material = this.options.tileMaterial();
 
     var localMesh = new THREE.Mesh(geom, material);
     localMesh.rotation.x = -90 * Math.PI / 180;
@@ -74,11 +53,6 @@ class ImageTile extends Tile {
 
     mesh.position.x = this._center[0];
     mesh.position.z = this._center[1];
-
-    // var box = new BoxHelper(localMesh);
-    // mesh.add(box);
-    //
-    // mesh.add(this._createDebugMesh());
 
     return mesh;
   }

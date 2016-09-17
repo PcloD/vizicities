@@ -238,7 +238,7 @@ gulp.task('lint', ['lint-src', 'lint-test', 'lint-gulpfile']);
 gulp.task('move-css', ['clean'], moveCSS);
 
 // Build two versions of the library
-gulp.task('build', ['lint', 'move-css'], build);
+gulp.task('build', ['move-css'], build);
 
 // Lint and run our tests
 gulp.task('test', ['lint'], test);

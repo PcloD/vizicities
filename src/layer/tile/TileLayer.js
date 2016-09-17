@@ -165,9 +165,9 @@ class TileLayer extends Layer {
     // 5. Filter the tiles remaining in the check list
     this._tileList = checkList.filter((tile, index) => {
       // Skip tile if it's not in the current view frustum
-      if (!this._tileInFrustum(tile)) {
-        return false;
-      }
+      // if (!this._tileInFrustum(tile)) {
+      //   return false;
+      // }
 
       if (this._options.distance && this._options.distance > 0) {
         // TODO: Can probably speed this up

@@ -127,6 +127,7 @@ class GeoJSONLayer extends LayerGroup {
       });
 
       var layer = this._featureToLayer(feature, options);
+      var add = true;
 
       if (!layer) {
         return;
@@ -139,14 +140,19 @@ class GeoJSONLayer extends LayerGroup {
         layer.feature = feature;
       }
 
+      
+
       // If defined, call a function for each feature
       //
       // This is commonly used for adding event listeners from the user script
       if (this._options.onEachFeature) {
-        this._options.onEachFeature(feature, layer);
+        add = this._options.onEachFeature(feature, layer);
       }
 
-      this.addLayer(layer);
+      if(add) {
+        this.addLayer(layer);
+      }
+
     });
 
     // If merging layers do that now, otherwise skip as the geometry layers
@@ -429,6 +435,8 @@ class GeoJSONLayer extends LayerGroup {
       if (typeof this._options.onPolygonBufferAttributes === 'function') {
         options.onBufferAttributes = this._options.onPolygonBufferAttributes;
       }
+
+      options.feature = feature;
 
       return new PolygonLayer(coordinates, options);
     }

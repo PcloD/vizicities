@@ -20,7 +20,7 @@ class World extends EventEmitter {
       postProcessing: false
     };
 
-    this.version = '1.0 build 22 [bd]';
+    this.version = '1.0 build 36 [bd]';
 
     this.options = extend({}, defaults, options);
 

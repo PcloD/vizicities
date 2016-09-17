@@ -109,6 +109,7 @@ class PolygonLayer extends Layer {
     // TODO: Find a way to properly remove this listener on destroy
     this._world.on('pick-' + this._pickingId, (point2d, point3d, intersects) => {
       // Re-emit click event from the layer
+      console.log('>>> click');
       this.emit('click', this, point2d, point3d, intersects);
     });
   }
@@ -152,7 +153,8 @@ class PolygonLayer extends Layer {
 
         var extruded = extrudePolygon(groupedVertices, faces, {
           bottom: 0,
-          top: height
+          top: height, 
+          feature: this._options.feature
         });
 
         var topColor = colour.clone().multiply(light);

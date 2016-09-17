@@ -1,6 +1,5 @@
 import TileLayer from './TileLayer';
 import ImageTile from './ImageTile';
-import ImageTileLayerBaseMaterial from './ImageTileLayerBaseMaterial';
 import throttle from 'lodash.throttle';
 import THREE from 'three';
 import extend from 'lodash.assign';
@@ -59,7 +58,7 @@ import extend from 'lodash.assign';
 class ImageTileLayer extends TileLayer {
   constructor(path, options) {
     var defaults = {
-      distance: 300000
+      distance: 100000
     };
 
     options = extend({}, defaults, options);
@@ -72,31 +71,15 @@ class ImageTileLayer extends TileLayer {
   _onAdd(world) {
     super._onAdd(world);
 
-    // Add base layer
     var geom = new THREE.PlaneBufferGeometry(2000000, 2000000, 1);
-
-    var baseMaterial;
-    if (this._world._environment._skybox) {
-      baseMaterial = ImageTileLayerBaseMaterial('#f5f5f3', this._world._environment._skybox.getRenderTarget());
-    } else {
-      baseMaterial = ImageTileLayerBaseMaterial('#f5f5f3');
-    }
-
-    var mesh = new THREE.Mesh(geom, baseMaterial);
+    var mesh = new THREE.Mesh(geom, this._options.baseMaterial);
     mesh.renderOrder = 0;
     mesh.rotation.x = -90 * Math.PI / 180;
-
-    // TODO: It might be overkill to receive a shadow on the base layer as it's
-    // rarely seen (good to have if performance difference is negligible)
-    mesh.receiveShadow = true;
+    mesh.receiveShadow = false;
 
     this._baseLayer = mesh;
     this.add(mesh);
 
-    // Trigger initial quadtree calculation on the next frame
-    //
-    // TODO: This is a hack to ensure the camera is all set up - a better
-    // solution should be found
     setTimeout(() => {
       this._calculateLOD();
       this._initEvents();
@@ -105,7 +88,6 @@ class ImageTileLayer extends TileLayer {
 
   _initEvents() {
     // Run LOD calculations based on render calls
-    //
     // Throttled to 1 LOD calculation per 100ms
     this._throttledWorldUpdate = throttle(this._onWorldUpdate, 100);
 
@@ -128,7 +110,7 @@ class ImageTileLayer extends TileLayer {
   }
 
   _createTile(quadcode, layer) {
-    return new ImageTile(quadcode, this._path, layer);
+    return new ImageTile(quadcode, this._path, layer, this._options);
   }
 
   // Destroys the layer and removes it from the scene and memory

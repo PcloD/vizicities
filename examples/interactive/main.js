@@ -9,9 +9,17 @@ var world = VIZI.world('world', {
 // Add controls
 VIZI.Controls.orbit().addTo(world);
 
+var getMaterial = function() {
+  return new THREE.MeshBasicMaterial({
+      depthWrite: false
+    });
+}
+
 // CartoDB basemap
 VIZI.imageTileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+
+  tileMaterial: getMaterial
+
 }).addTo(world);
 
 // Chroma scale for height-based colours

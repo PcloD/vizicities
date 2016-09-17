@@ -20,195 +20,220 @@ import PickingScene from './PickingScene';
 var nextId = 1;
 
 class Picking {
-  constructor(world, renderer, camera) {
-    this._world = world;
-    this._renderer = renderer;
-    this._camera = camera;
+	constructor(world, renderer, camera) {
+		this._world = world;
+		this._renderer = renderer;
+		this._camera = camera;
 
-    this._raycaster = new THREE.Raycaster();
+		this._raycaster = new THREE.Raycaster();
 
-    // TODO: Match this with the line width used in the picking layers
-    this._raycaster.linePrecision = 3;
+		// TODO: Match this with the line width used in the picking layers
+		this._raycaster.linePrecision = 3;
 
-    this._pickingScene = PickingScene;
-    this._pickingTexture = new THREE.WebGLRenderTarget();
-    this._pickingTexture.texture.minFilter = THREE.LinearFilter;
-    this._pickingTexture.texture.generateMipmaps = false;
+		this._pickingScene = PickingScene;
+		this._pickingTexture = new THREE.WebGLRenderTarget();
+		this._pickingTexture.texture.minFilter = THREE.LinearFilter;
+		this._pickingTexture.texture.generateMipmaps = false;
 
-    this._nextId = 1;
+		this._nextId = 1;
 
-    this._resizeTexture();
-    this._initEvents();
-  }
+		this.mousedown = false;
 
-  _initEvents() {
-    this._resizeHandler = this._resizeTexture.bind(this);
-    window.addEventListener('resize', this._resizeHandler, false);
+		this._resizeTexture();
+		this._initEvents();
+	}
 
-    this._mouseUpHandler = this._onMouseUp.bind(this);
-    this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
+	_initEvents() {
+		this._resizeHandler = this._resizeTexture.bind(this);
+		window.addEventListener('resize', this._resizeHandler, false);
 
-    this._world.on('move', this._onWorldMove, this);
-  }
+		this._mouseUpHandler = this._onMouseUp.bind(this);
+		this._mouseHandler = this._onMouse.bind(this);
+		this._mouseDownHandler = this._onMouseDown.bind(this);
 
-  _onMouseUp(event) {
-    // Only react to main button click
-    if (event.button !== 0) {
-      return;
-    }
+		// this.mousedown = true;
 
-    var point = Point(event.clientX, event.clientY);
+		this._world._container.addEventListener('mousedown', this._mouseDownHandler, false);
+		this._world._container.addEventListener('mousemove', this._mouseHandler, false);
+		this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
 
-    var normalisedPoint = Point(0, 0);
-    normalisedPoint.x = (point.x / this._width) * 2 - 1;
-    normalisedPoint.y = -(point.y / this._height) * 2 + 1;
+		this._world.on('move', this._onWorldMove, this);
+	}
 
-    this._pick(point, normalisedPoint);
-  }
+	_onMouse(event) {
 
-  _onWorldMove() {
-    this._needUpdate = true;
-  }
+		if (!this.mousedown) {
+			return;
+		}
 
-  // TODO: Ensure this doesn't get out of sync issue with the renderer resize
-  _resizeTexture() {
-    var size = this._renderer.getSize();
+		var point = Point(event.clientX, event.clientY);
 
-    this._width = size.width;
-    this._height = size.height;
+		var normalisedPoint = Point(0, 0);
+		normalisedPoint.x = (point.x / this._width) * 2 - 1;
+		normalisedPoint.y = -(point.y / this._height) * 2 + 1;
 
-    this._pickingTexture.setSize(this._width, this._height);
-    this._pixelBuffer = new Uint8Array(4 * this._width * this._height);
+		this._pick(point, normalisedPoint);
+	}
 
-    this._needUpdate = true;
-  }
+	_onMouseDown() {
+		this.mousedown = true;
+	}
 
-  // TODO: Make this only re-draw the scene if both an update is needed and the
-  // camera has moved since the last update
-  //
-  // Otherwise it re-draws the scene on every click due to the way LOD updates
-  // work in TileLayer – spamming this.add() and this.remove()
-  //
-  // TODO: Pause updates during map move / orbit / zoom as this is unlikely to
-  // be a point in time where the user cares for picking functionality
-  _update() {
-    if (this._needUpdate) {
-      var texture = this._pickingTexture;
+	_onMouseUp() {
+		this.mousedown = false;
+	}
 
-      this._renderer.render(this._pickingScene, this._camera, this._pickingTexture);
+	_onWorldMove() {
+		this._needUpdate = true;
+	}
 
-      // Read the rendering texture
-      this._renderer.readRenderTargetPixels(texture, 0, 0, texture.width, texture.height, this._pixelBuffer);
+	// TODO: Ensure this doesn't get out of sync issue with the renderer resize
+	_resizeTexture() {
+		var size = this._renderer.getSize();
 
-      this._needUpdate = false;
-    }
-  }
+		this._width = size.width;
+		this._height = size.height;
 
-  _pick(point, normalisedPoint) {
-    this._update();
+		this._pickingTexture.setSize(this._width, this._height);
+		this._pixelBuffer = new Uint8Array(4 * this._width * this._height);
 
-    var index = point.x + (this._pickingTexture.height - point.y) * this._pickingTexture.width;
+		this._needUpdate = true;
+	}
 
-    // Interpret the pixel as an ID
-    var id = (this._pixelBuffer[index * 4 + 2] * 255 * 255) + (this._pixelBuffer[index * 4 + 1] * 255) + (this._pixelBuffer[index * 4 + 0]);
+	// TODO: Make this only re-draw the scene if both an update is needed and the
+	// camera has moved since the last update
+	//
+	// Otherwise it re-draws the scene on every click due to the way LOD updates
+	// work in TileLayer – spamming this.add() and this.remove()
+	//
+	// TODO: Pause updates during map move / orbit / zoom as this is unlikely to
+	// be a point in time where the user cares for picking functionality
+	_update() {
+		if (this._needUpdate) {
+			var texture = this._pickingTexture;
 
-    // Skip if ID is 16646655 (white) as the background returns this
-    if (id === 16646655) {
-      return;
-    }
+			this._renderer.render(this._pickingScene, this._camera, this._pickingTexture);
 
-    this._raycaster.setFromCamera(normalisedPoint, this._camera);
+			// Read the rendering texture
+			this._renderer.readRenderTargetPixels(texture, 0, 0, texture.width, texture.height, this._pixelBuffer);
 
-    // Perform ray intersection on picking scene
-    //
-    // TODO: Only perform intersection test on the relevant picking mesh
-    var intersects = this._raycaster.intersectObjects(this._pickingScene.children, true);
+			this._needUpdate = false;
+		}
+	}
 
-    var _point2d = point.clone();
+	_pick(point, normalisedPoint) {
+		this._update();
 
-    var _point3d;
-    if (intersects.length > 0) {
-      _point3d = intersects[0].point.clone();
-    }
+		var index = point.x + (this._pickingTexture.height - point.y) * this._pickingTexture.width;
 
-    // Pass along as much data as possible for now until we know more about how
-    // people use the picking API and what the returned data should be
-    //
-    // TODO: Look into the leak potential for passing so much by reference here
-    this._world.emit('pick', id, _point2d, _point3d, intersects);
-    this._world.emit('pick-' + id, _point2d, _point3d, intersects);
-  }
+		// Interpret the pixel as an ID
+		var id = (this._pixelBuffer[index * 4 + 2] * 255 * 255) + (this._pixelBuffer[index * 4 + 1] * 255) + (this._pixelBuffer[index * 4 + 0]);
 
-  // Add mesh to picking scene
-  //
-  // Picking ID should already be added as an attribute
-  add(mesh) {
-    this._pickingScene.add(mesh);
-    this._needUpdate = true;
-  }
+		console.log(point.x, point.y, this._pickingTexture.height, this._pickingTexture.width); // ? ? ?
 
-  // Remove mesh from picking scene
-  remove(mesh) {
-    this._pickingScene.remove(mesh);
-    this._needUpdate = true;
-  }
+		// Skip if ID is 16646655 (white) as the background returns this
+		if (id === 16646655) {
+			return;
+		}
 
-  // Returns next ID to use for picking
-  getNextId() {
-    return nextId++;
-  }
+		this._raycaster.setFromCamera(normalisedPoint, this._camera);
 
-  destroy() {
-    // TODO: Find a way to properly remove these listeners as they stay
-    // active at the moment
-    window.removeEventListener('resize', this._resizeHandler, false);
-    this._world._container.removeEventListener('mouseup', this._mouseUpHandler, false);
+		// Perform ray intersection on picking scene
+		//
+		// TODO: Only perform intersection test on the relevant picking mesh
+		var intersects = this._raycaster.intersectObjects(this._pickingScene.children, true);
 
-    this._world.off('move', this._onWorldMove);
+		var _point2d = point.clone();
 
-    if (this._pickingScene.children) {
-      // Remove everything else in the layer
-      var child;
-      for (var i = this._pickingScene.children.length - 1; i >= 0; i--) {
-        child = this._pickingScene.children[i];
+		var _point3d;
+		if (intersects.length > 0) {
+			_point3d = intersects[0].point.clone();
+		}
 
-        if (!child) {
-          continue;
-        }
+		// Pass along as much data as possible for now until we know more about how
+		// people use the picking API and what the returned data should be
+		//
+		// TODO: Look into the leak potential for passing so much by reference here
+		this._world.emit('pick', id, _point2d, _point3d, intersects);
+		this._world.emit('pick-' + id, _point2d, _point3d, intersects);
 
-        this._pickingScene.remove(child);
+		// console.log('pick', id);
+	}
 
-        // Probably not a good idea to dispose of geometry due to it being
-        // shared with the non-picking scene
-        // if (child.geometry) {
-        //   // Dispose of mesh and materials
-        //   child.geometry.dispose();
-        //   child.geometry = null;
-        // }
+	// Add mesh to picking scene
+	//
+	// Picking ID should already be added as an attribute
+	add(mesh) {
+		this._pickingScene.add(mesh);
+		this._needUpdate = true;
+	}
 
-        if (child.material) {
-          if (child.material.map) {
-            child.material.map.dispose();
-            child.material.map = null;
-          }
+	// Remove mesh from picking scene
+	remove(mesh) {
+		this._pickingScene.remove(mesh);
+		this._needUpdate = true;
+	}
 
-          child.material.dispose();
-          child.material = null;
-        }
-      }
-    }
+	// Returns next ID to use for picking
+	getNextId() {
+		return nextId++;
+	}
 
-    this._pickingScene = null;
-    this._pickingTexture = null;
-    this._pixelBuffer = null;
+	destroy() {
+		// TODO: Find a way to properly remove these listeners as they stay
+		// active at the moment
+		window.removeEventListener('resize', this._resizeHandler, false);
 
-    this._world = null;
-    this._renderer = null;
-    this._camera = null;
-  }
+		// TODO: put this back!
+		// this._world._container.removeEventListener('mousedown', this.onMouseDown, false);
+		// this._world._container.removeEventListener('mousemove', this._mouseHandler, false);
+		// this._world._container.removeEventListener('mouseup', this.onMouseUp, false);
+
+		this._world.off('move', this._onWorldMove);
+
+		if (this._pickingScene.children) {
+			// Remove everything else in the layer
+			var child;
+			for (var i = this._pickingScene.children.length - 1; i >= 0; i--) {
+				child = this._pickingScene.children[i];
+
+				if (!child) {
+					continue;
+				}
+
+				this._pickingScene.remove(child);
+
+				// Probably not a good idea to dispose of geometry due to it being
+				// shared with the non-picking scene
+				// if (child.geometry) {
+				//   // Dispose of mesh and materials
+				//   child.geometry.dispose();
+				//   child.geometry = null;
+				// }
+
+				if (child.material) {
+					if (child.material.map) {
+						child.material.map.dispose();
+						child.material.map = null;
+					}
+
+					child.material.dispose();
+					child.material = null;
+				}
+			}
+		}
+
+		this._pickingScene = null;
+		this._pickingTexture = null;
+		this._pixelBuffer = null;
+
+		this._world = null;
+		this._renderer = null;
+		this._camera = null;
+	}
 }
 
 // Initialise without requiring new keyword
 export default function(world, renderer, camera) {
-  return new Picking(world, renderer, camera);
+	return new Picking(world, renderer, camera);
 };
