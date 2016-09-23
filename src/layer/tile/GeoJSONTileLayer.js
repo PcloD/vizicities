@@ -37,8 +37,8 @@ import THREE from 'three';
 class GeoJSONTileLayer extends TileLayer {
   constructor(path, options) {
     var defaults = {
-      maxLOD: 14,
-      distance: 30000
+      maxLOD: 16,
+      distance: 4000
     };
 
     options = extend({}, defaults, options);
@@ -84,7 +84,7 @@ class GeoJSONTileLayer extends TileLayer {
   // Update tiles grid after world move, but don't output them
   _onWorldMove(latlon, point) {
     this._pauseOutput = false;
-    this._calculateLOD();
+    // this._calculateLOD();
   }
 
   // Pause updates during control movement for less visual jank

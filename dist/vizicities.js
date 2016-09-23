@@ -7,7 +7,7 @@
 		exports["VIZI"] = factory(require("THREE"), require("TweenLite"));
 	else
 		root["VIZI"] = factory(root["THREE"], root["TweenLite"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_38__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_34__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -64,7 +64,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _World2 = _interopRequireDefault(_World);
 	
-	var _controlsIndex = __webpack_require__(34);
+	var _controlsIndex = __webpack_require__(30);
 	
 	var _controlsIndex2 = _interopRequireDefault(_controlsIndex);
 	
@@ -72,43 +72,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _geoGeoJs2 = _interopRequireDefault(_geoGeoJs);
 	
-	var _layerLayer = __webpack_require__(30);
+	var _layerLayer = __webpack_require__(24);
 	
 	var _layerLayer2 = _interopRequireDefault(_layerLayer);
 	
-	var _layerEnvironmentEnvironmentLayer = __webpack_require__(29);
+	var _layerEnvironmentEnvironmentLayer = __webpack_require__(23);
 	
 	var _layerEnvironmentEnvironmentLayer2 = _interopRequireDefault(_layerEnvironmentEnvironmentLayer);
 	
-	var _layerTileImageTileLayer = __webpack_require__(39);
+	var _layerTileImageTileLayer = __webpack_require__(35);
 	
 	var _layerTileImageTileLayer2 = _interopRequireDefault(_layerTileImageTileLayer);
 	
-	var _layerTileGeoJSONTileLayer = __webpack_require__(53);
+	var _layerTileGeoJSONTileLayer = __webpack_require__(49);
 	
 	var _layerTileGeoJSONTileLayer2 = _interopRequireDefault(_layerTileGeoJSONTileLayer);
 	
-	var _layerTileTopoJSONTileLayer = __webpack_require__(71);
+	var _layerTileTopoJSONTileLayer = __webpack_require__(67);
 	
 	var _layerTileTopoJSONTileLayer2 = _interopRequireDefault(_layerTileTopoJSONTileLayer);
 	
-	var _layerGeoJSONLayer = __webpack_require__(55);
+	var _layerGeoJSONLayer = __webpack_require__(51);
 	
 	var _layerGeoJSONLayer2 = _interopRequireDefault(_layerGeoJSONLayer);
 	
-	var _layerTopoJSONLayer = __webpack_require__(72);
+	var _layerTopoJSONLayer = __webpack_require__(68);
 	
 	var _layerTopoJSONLayer2 = _interopRequireDefault(_layerTopoJSONLayer);
 	
-	var _layerGeometryPolygonLayer = __webpack_require__(68);
+	var _layerGeometryPolygonLayer = __webpack_require__(64);
 	
 	var _layerGeometryPolygonLayer2 = _interopRequireDefault(_layerGeometryPolygonLayer);
 	
-	var _layerGeometryPolylineLayer = __webpack_require__(69);
+	var _layerGeometryPolylineLayer = __webpack_require__(65);
 	
 	var _layerGeometryPolylineLayer2 = _interopRequireDefault(_layerGeometryPolylineLayer);
 	
-	var _layerGeometryPointLayer = __webpack_require__(70);
+	var _layerGeometryPointLayer = __webpack_require__(66);
 	
 	var _layerGeometryPointLayer2 = _interopRequireDefault(_layerGeometryPointLayer);
 	
@@ -120,11 +120,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _geoLatLon2 = _interopRequireDefault(_geoLatLon);
 	
-	var _enginePickingMaterial = __webpack_require__(66);
+	var _enginePickingMaterial = __webpack_require__(62);
 	
 	var _enginePickingMaterial2 = _interopRequireDefault(_enginePickingMaterial);
 	
-	var _utilIndex = __webpack_require__(73);
+	var _utilIndex = __webpack_require__(69);
 	
 	var _utilIndex2 = _interopRequireDefault(_utilIndex);
 	
@@ -205,7 +205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _engineEngine2 = _interopRequireDefault(_engineEngine);
 	
-	var _layerEnvironmentEnvironmentLayer = __webpack_require__(29);
+	var _layerEnvironmentEnvironmentLayer = __webpack_require__(23);
 	
 	var _layerEnvironmentEnvironmentLayer2 = _interopRequireDefault(_layerEnvironmentEnvironmentLayer);
 	
@@ -227,7 +227,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      postProcessing: false
 	    };
 	
-	    this.version = '1.0 build 36 [bd]';
+	    this.version = '1.0 build 87 [bd]';
 	
 	    this.options = (0, _lodashAssign2['default'])({}, defaults, options);
 	
@@ -466,8 +466,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (layer.isOutput() && layer.isOutputToScene()) {
 	        // Could move this into Layer but it'll do here for now
 	        this._engine._scene.add(layer._object3D);
-	        this._engine._domScene3D.add(layer._domObject3D);
-	        this._engine._domScene2D.add(layer._domObject2D);
+	        // this._engine._domScene3D.add(layer._domObject3D);
+	        // this._engine._domScene2D.add(layer._domObject2D);
 	      }
 	
 	      this.emit('layerAdded', layer);
@@ -487,8 +487,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      if (layer.isOutput() && layer.isOutputToScene()) {
 	        this._engine._scene.remove(layer._object3D);
-	        this._engine._domScene3D.remove(layer._domObject3D);
-	        this._engine._domScene2D.remove(layer._domObject2D);
+	        // this._engine._domScene3D.remove(layer._domObject3D);
+	        // this._engine._domScene2D.remove(layer._domObject2D);
 	      }
 	
 	      this.emit('layerRemoved');
@@ -1922,59 +1922,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _Scene2 = _interopRequireDefault(_Scene);
 	
-	var _DOMScene3D = __webpack_require__(10);
+	// import DOMScene3D from './DOMScene3D';
+	// import DOMScene2D from './DOMScene2D';
 	
-	var _DOMScene3D2 = _interopRequireDefault(_DOMScene3D);
-	
-	var _DOMScene2D = __webpack_require__(11);
-	
-	var _DOMScene2D2 = _interopRequireDefault(_DOMScene2D);
-	
-	var _Renderer = __webpack_require__(12);
+	var _Renderer = __webpack_require__(10);
 	
 	var _Renderer2 = _interopRequireDefault(_Renderer);
 	
-	var _DOMRenderer3D = __webpack_require__(13);
+	// import DOMRenderer3D from './DOMRenderer3D';
+	// import DOMRenderer2D from './DOMRenderer2D';
 	
-	var _DOMRenderer3D2 = _interopRequireDefault(_DOMRenderer3D);
-	
-	var _DOMRenderer2D = __webpack_require__(15);
-	
-	var _DOMRenderer2D2 = _interopRequireDefault(_DOMRenderer2D);
-	
-	var _Camera = __webpack_require__(17);
+	var _Camera = __webpack_require__(11);
 	
 	var _Camera2 = _interopRequireDefault(_Camera);
 	
-	var _Picking = __webpack_require__(18);
+	var _Picking = __webpack_require__(12);
 	
 	var _Picking2 = _interopRequireDefault(_Picking);
 	
-	var _EffectComposer = __webpack_require__(20);
+	var _EffectComposer = __webpack_require__(14);
 	
 	var _EffectComposer2 = _interopRequireDefault(_EffectComposer);
 	
-	var _vendorRenderPass = __webpack_require__(25);
+	var _vendorRenderPass = __webpack_require__(19);
 	
 	var _vendorRenderPass2 = _interopRequireDefault(_vendorRenderPass);
 	
-	var _vendorShaderPass = __webpack_require__(23);
+	var _vendorShaderPass = __webpack_require__(17);
 	
 	var _vendorShaderPass2 = _interopRequireDefault(_vendorShaderPass);
 	
-	var _vendorCopyShader = __webpack_require__(22);
+	var _vendorCopyShader = __webpack_require__(16);
 	
 	var _vendorCopyShader2 = _interopRequireDefault(_vendorCopyShader);
 	
-	var _vendorHorizontalTiltShiftShader = __webpack_require__(26);
+	var _vendorHorizontalTiltShiftShader = __webpack_require__(20);
 	
 	var _vendorHorizontalTiltShiftShader2 = _interopRequireDefault(_vendorHorizontalTiltShiftShader);
 	
-	var _vendorVerticalTiltShiftShader = __webpack_require__(27);
+	var _vendorVerticalTiltShiftShader = __webpack_require__(21);
 	
 	var _vendorVerticalTiltShiftShader2 = _interopRequireDefault(_vendorVerticalTiltShiftShader);
 	
-	var _vendorFXAAShader = __webpack_require__(28);
+	var _vendorFXAAShader = __webpack_require__(22);
 	
 	var _vendorFXAAShader2 = _interopRequireDefault(_vendorFXAAShader);
 	
@@ -1991,13 +1981,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this._world = world;
 	
 	    this._scene = _Scene2['default'];
-	    this._domScene3D = _DOMScene3D2['default'];
-	    this._domScene2D = _DOMScene2D2['default'];
+	    // this._domScene3D = DOMScene3D;
+	    // this._domScene2D = DOMScene2D;
 	
 	    var antialias = this._world.options.postProcessing ? false : true;
 	    this._renderer = (0, _Renderer2['default'])(container, antialias);
-	    this._domRenderer3D = (0, _DOMRenderer3D2['default'])(container);
-	    this._domRenderer2D = (0, _DOMRenderer2D2['default'])(container);
+	    // this._domRenderer3D = DOMRenderer3D(container);
+	    // this._domRenderer2D = DOMRenderer2D(container);
 	
 	    this._camera = (0, _Camera2['default'])(container);
 	
@@ -2080,8 +2070,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // this._renderer.render(this._picking._pickingScene, this._camera);
 	
 	      // Render DOM scenes
-	      this._domRenderer3D.render(this._domScene3D, this._camera);
-	      this._domRenderer2D.render(this._domScene2D, this._camera);
+	      // this._domRenderer3D.render(this._domScene3D, this._camera);
+	      // this._domRenderer2D.render(this._domScene2D, this._camera);
 	
 	      this.emit('postRender');
 	    }
@@ -2116,39 +2106,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      };
 	
-	      for (var i = this._domScene3D.children.length - 1; i >= 0; i--) {
-	        child = this._domScene3D.children[i];
+	      // for (var i = this._domScene3D.children.length - 1; i >= 0; i--) {
+	      //   child = this._domScene3D.children[i];
 	
-	        if (!child) {
-	          continue;
-	        }
+	      //   if (!child) {
+	      //     continue;
+	      //   }
 	
-	        this._domScene3D.remove(child);
-	      };
+	      //   this._domScene3D.remove(child);
+	      // };
 	
-	      for (var i = this._domScene2D.children.length - 1; i >= 0; i--) {
-	        child = this._domScene2D.children[i];
+	      // for (var i = this._domScene2D.children.length - 1; i >= 0; i--) {
+	      //   child = this._domScene2D.children[i];
 	
-	        if (!child) {
-	          continue;
-	        }
+	      //   if (!child) {
+	      //     continue;
+	      //   }
 	
-	        this._domScene2D.remove(child);
-	      };
+	      //   this._domScene2D.remove(child);
+	      // };
 	
 	      this._picking.destroy();
 	      this._picking = null;
 	
 	      this._world = null;
 	      this._scene = null;
-	      this._domScene3D = null;
-	      this._domScene2D = null;
+	      // this._domScene3D = null;
+	      // this._domScene2D = null;
 	
 	      this._composer = null;
 	      this._renderer = null;
 	
-	      this._domRenderer3D = null;
-	      this._domRenderer2D = null;
+	      // this._domRenderer3D = null;
+	      // this._domRenderer2D = null;
 	      this._camera = null;
 	      this._clock = null;
 	      this._frustum = null;
@@ -2201,54 +2191,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	// This can be imported from anywhere and will still reference the same scene,
-	// though there is a helper reference in Engine.scene
-	
-	exports['default'] = (function () {
-	  var scene = new _three2['default'].Scene();
-	  return scene;
-	})();
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	// This can be imported from anywhere and will still reference the same scene,
-	// though there is a helper reference in Engine.scene
-	
-	exports['default'] = (function () {
-	  var scene = new _three2['default'].Scene();
-	  return scene;
-	})();
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -2315,6 +2257,333 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	// This can only be accessed from Engine.camera if you want to reference the
+	// same scene in multiple places
+	
+	// TODO: Ensure that FOV looks natural on all aspect ratios
+	// http://stackoverflow.com/q/26655930/997339
+	
+	exports['default'] = function (container) {
+	  var camera = new _three2['default'].PerspectiveCamera(45, 1, 1, 2000000);
+	  camera.position.y = 4000;
+	  camera.position.z = 4000;
+	
+	  var updateSize = function updateSize() {
+	    camera.aspect = container.clientWidth / container.clientHeight;
+	    camera.updateProjectionMatrix();
+	  };
+	
+	  window.addEventListener('resize', updateSize, false);
+	  updateSize();
+	
+	  return camera;
+	};
+	
+	;
+	module.exports = exports['default'];
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	var _geoPoint = __webpack_require__(6);
+	
+	var _PickingScene = __webpack_require__(13);
+	
+	var _PickingScene2 = _interopRequireDefault(_PickingScene);
+	
+	// TODO: Look into a way of setting this up without passing in a renderer and
+	// camera from the engine
+	
+	// TODO: Add a basic indicator on or around the mouse pointer when it is over
+	// something pickable / clickable
+	//
+	// A simple transparent disc or ring at the mouse point should work to start, or
+	// even just changing the cursor to the CSS 'pointer' style
+	//
+	// Probably want this on mousemove with a throttled update as not to spam the
+	// picking method
+	//
+	// Relies upon the picking method not redrawing the scene every call due to
+	// the way TileLayer invalidates the picking scene
+	
+	var nextId = 1;
+	
+	var Picking = (function () {
+		function Picking(world, renderer, camera) {
+			_classCallCheck(this, Picking);
+	
+			this._world = world;
+			this._renderer = renderer;
+			this._camera = camera;
+	
+			this._raycaster = new _three2['default'].Raycaster();
+	
+			// TODO: Match this with the line width used in the picking layers
+			this._raycaster.linePrecision = 3;
+	
+			this._pickingScene = _PickingScene2['default'];
+			this._pickingTexture = new _three2['default'].WebGLRenderTarget();
+			this._pickingTexture.texture.minFilter = _three2['default'].LinearFilter;
+			this._pickingTexture.texture.generateMipmaps = false;
+	
+			this._nextId = 1;
+	
+			this.mousedown = false;
+	
+			this._resizeTexture();
+			this._initEvents();
+		}
+	
+		// Initialise without requiring new keyword
+	
+		_createClass(Picking, [{
+			key: '_initEvents',
+			value: function _initEvents() {
+				this._resizeHandler = this._resizeTexture.bind(this);
+				window.addEventListener('resize', this._resizeHandler, false);
+	
+				this._mouseUpHandler = this._onMouseUp.bind(this);
+				this._mouseHandler = this._onMouse.bind(this);
+				this._mouseDownHandler = this._onMouseDown.bind(this);
+	
+				// this.mousedown = true;
+	
+				this._world._container.addEventListener('mousedown', this._mouseHandler, false);
+				// this._world._container.addEventListener('mousedown', this._mouseDownHandler, false);
+				// this._world._container.addEventListener('mousemove', this._mouseHandler, false);
+				// this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
+	
+				this._world.on('move', this._onWorldMove, this);
+			}
+		}, {
+			key: '_onMouse',
+			value: function _onMouse(event) {
+	
+				// if (!this.mousedown) {
+				// 	return;
+				// }
+	
+				var point = (0, _geoPoint.point)(event.clientX, event.clientY);
+	
+				var normalisedPoint = (0, _geoPoint.point)(0, 0);
+				normalisedPoint.x = point.x / this._width * 2 - 1;
+				normalisedPoint.y = -(point.y / this._height) * 2 + 1;
+	
+				this._pick(point, normalisedPoint);
+			}
+		}, {
+			key: '_onMouseDown',
+			value: function _onMouseDown() {
+				this.mousedown = true;
+			}
+		}, {
+			key: '_onMouseUp',
+			value: function _onMouseUp() {
+				this.mousedown = false;
+			}
+		}, {
+			key: '_onWorldMove',
+			value: function _onWorldMove() {
+				this._needUpdate = true;
+			}
+	
+			// TODO: Ensure this doesn't get out of sync issue with the renderer resize
+		}, {
+			key: '_resizeTexture',
+			value: function _resizeTexture() {
+				var size = this._renderer.getSize();
+	
+				this._width = size.width;
+				this._height = size.height;
+	
+				this._pickingTexture.setSize(this._width, this._height);
+				this._pixelBuffer = new Uint8Array(4 * this._width * this._height);
+	
+				this._needUpdate = true;
+			}
+	
+			// TODO: Make this only re-draw the scene if both an update is needed and the
+			// camera has moved since the last update
+			//
+			// Otherwise it re-draws the scene on every click due to the way LOD updates
+			// work in TileLayer – spamming this.add() and this.remove()
+			//
+			// TODO: Pause updates during map move / orbit / zoom as this is unlikely to
+			// be a point in time where the user cares for picking functionality
+		}, {
+			key: '_update',
+			value: function _update() {
+				if (this._needUpdate) {
+					var texture = this._pickingTexture;
+	
+					this._renderer.render(this._pickingScene, this._camera, this._pickingTexture);
+	
+					// Read the rendering texture
+					this._renderer.readRenderTargetPixels(texture, 0, 0, texture.width, texture.height, this._pixelBuffer);
+	
+					this._needUpdate = false;
+				}
+			}
+		}, {
+			key: '_pick',
+			value: function _pick(point, normalisedPoint) {
+				this._update();
+	
+				var index = point.x + (this._pickingTexture.height - point.y) * this._pickingTexture.width;
+	
+				// Interpret the pixel as an ID
+				var id = this._pixelBuffer[index * 4 + 2] * 255 * 255 + this._pixelBuffer[index * 4 + 1] * 255 + this._pixelBuffer[index * 4 + 0];
+	
+				// console.log(point.x, point.y, this._pickingTexture.height, this._pickingTexture.width); // ? ? ?
+	
+				// Skip if ID is 16646655 (white) as the background returns this
+				if (id === 16646655) {
+					return;
+				}
+	
+				this._raycaster.setFromCamera(normalisedPoint, this._camera);
+	
+				// Perform ray intersection on picking scene
+				//
+				// TODO: Only perform intersection test on the relevant picking mesh
+				var intersects = this._raycaster.intersectObjects(this._pickingScene.children, true);
+	
+				var _point2d = point.clone();
+	
+				var _point3d;
+				if (intersects.length > 0) {
+					_point3d = intersects[0].point.clone();
+				}
+	
+				// Pass along as much data as possible for now until we know more about how
+				// people use the picking API and what the returned data should be
+				//
+				// TODO: Look into the leak potential for passing so much by reference here
+				this._world.emit('pick', id, _point2d, _point3d, intersects);
+				this._world.emit('pick-' + id, _point2d, _point3d, intersects);
+	
+				// console.log('pick', id);
+			}
+	
+			// Add mesh to picking scene
+			//
+			// Picking ID should already be added as an attribute
+		}, {
+			key: 'add',
+			value: function add(mesh) {
+				this._pickingScene.add(mesh);
+				this._needUpdate = true;
+			}
+	
+			// Remove mesh from picking scene
+		}, {
+			key: 'remove',
+			value: function remove(mesh) {
+				this._pickingScene.remove(mesh);
+				this._needUpdate = true;
+			}
+	
+			// Returns next ID to use for picking
+		}, {
+			key: 'getNextId',
+			value: function getNextId() {
+				return nextId++;
+			}
+		}, {
+			key: 'destroy',
+			value: function destroy() {
+				// TODO: Find a way to properly remove these listeners as they stay
+				// active at the moment
+				window.removeEventListener('resize', this._resizeHandler, false);
+	
+				// TODO: put this back!
+				// this._world._container.removeEventListener('mousedown', this.onMouseDown, false);
+				// this._world._container.removeEventListener('mousemove', this._mouseHandler, false);
+				// this._world._container.removeEventListener('mouseup', this.onMouseUp, false);
+	
+				this._world.off('move', this._onWorldMove);
+	
+				if (this._pickingScene.children) {
+					// Remove everything else in the layer
+					var child;
+					for (var i = this._pickingScene.children.length - 1; i >= 0; i--) {
+						child = this._pickingScene.children[i];
+	
+						if (!child) {
+							continue;
+						}
+	
+						this._pickingScene.remove(child);
+	
+						// Probably not a good idea to dispose of geometry due to it being
+						// shared with the non-picking scene
+						// if (child.geometry) {
+						//   // Dispose of mesh and materials
+						//   child.geometry.dispose();
+						//   child.geometry = null;
+						// }
+	
+						if (child.material) {
+							if (child.material.map) {
+								child.material.map.dispose();
+								child.material.map = null;
+							}
+	
+							child.material.dispose();
+							child.material = null;
+						}
+					}
+				}
+	
+				this._pickingScene = null;
+				this._pickingTexture = null;
+				this._pixelBuffer = null;
+	
+				this._world = null;
+				this._renderer = null;
+				this._camera = null;
+			}
+		}]);
+	
+		return Picking;
+	})();
+	
+	exports['default'] = function (world, renderer, camera) {
+		return new Picking(world, renderer, camera);
+	};
+	
+	;
+	module.exports = exports['default'];
+
+/***/ },
 /* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2328,38 +2597,1104 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _vendorCSS3DRenderer = __webpack_require__(14);
+	// This can be imported from anywhere and will still reference the same scene,
+	// though there is a helper reference in Engine.pickingScene
 	
-	var _DOMScene3D = __webpack_require__(10);
+	exports['default'] = (function () {
+	  var scene = new _three2['default'].Scene();
+	  return scene;
+	})();
 	
-	var _DOMScene3D2 = _interopRequireDefault(_DOMScene3D);
+	module.exports = exports['default'];
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
 	
-	// This can only be accessed from Engine.renderer if you want to reference the
-	// same scene in multiple places
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	exports['default'] = function (container) {
-	  var renderer = new _vendorCSS3DRenderer.CSS3DRenderer();
+	var _three = __webpack_require__(8);
 	
-	  renderer.domElement.style.position = 'absolute';
-	  renderer.domElement.style.top = 0;
+	var _three2 = _interopRequireDefault(_three);
 	
-	  container.appendChild(renderer.domElement);
+	var _vendorEffectComposer = __webpack_require__(15);
+	
+	var _vendorEffectComposer2 = _interopRequireDefault(_vendorEffectComposer);
+	
+	exports['default'] = function (renderer, container) {
+	  var composer = new _vendorEffectComposer2['default'](renderer);
 	
 	  var updateSize = function updateSize() {
-	    renderer.setSize(container.clientWidth, container.clientHeight);
+	    // TODO: Re-enable this when perf issues can be solved
+	    //
+	    // Rendering double the resolution of the screen can be really slow
+	    // var pixelRatio = window.devicePixelRatio;
+	    var pixelRatio = 1;
+	
+	    composer.setSize(container.clientWidth * pixelRatio, container.clientHeight * pixelRatio);
 	  };
 	
 	  window.addEventListener('resize', updateSize, false);
 	  updateSize();
 	
-	  return renderer;
+	  return composer;
 	};
 	
 	;
 	module.exports = exports['default'];
 
 /***/ },
-/* 14 */
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	var _CopyShader = __webpack_require__(16);
+	
+	var _CopyShader2 = _interopRequireDefault(_CopyShader);
+	
+	var _ShaderPass = __webpack_require__(17);
+	
+	var _ShaderPass2 = _interopRequireDefault(_ShaderPass);
+	
+	var _MaskPass = __webpack_require__(18);
+	
+	var _MaskPass2 = _interopRequireDefault(_MaskPass);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 */
+	
+	var EffectComposer = function EffectComposer(renderer, renderTarget) {
+	
+		this.renderer = renderer;
+	
+		if (renderTarget === undefined) {
+	
+			var pixelRatio = renderer.getPixelRatio();
+	
+			var width = Math.floor(renderer.context.canvas.width / pixelRatio) || 1;
+			var height = Math.floor(renderer.context.canvas.height / pixelRatio) || 1;
+			var parameters = { minFilter: _three2['default'].LinearFilter, magFilter: _three2['default'].LinearFilter, format: _three2['default'].RGBAFormat, stencilBuffer: false };
+	
+			renderTarget = new _three2['default'].WebGLRenderTarget(width, height, parameters);
+		}
+	
+		this.renderTarget1 = renderTarget;
+		this.renderTarget2 = renderTarget.clone();
+	
+		this.writeBuffer = this.renderTarget1;
+		this.readBuffer = this.renderTarget2;
+	
+		this.passes = [];
+	
+		if (_CopyShader2['default'] === undefined) console.error("EffectComposer relies on THREE.CopyShader");
+	
+		this.copyPass = new _ShaderPass2['default'](_CopyShader2['default']);
+	};
+	
+	EffectComposer.prototype = {
+	
+		swapBuffers: function swapBuffers() {
+	
+			var tmp = this.readBuffer;
+			this.readBuffer = this.writeBuffer;
+			this.writeBuffer = tmp;
+		},
+	
+		addPass: function addPass(pass) {
+	
+			this.passes.push(pass);
+		},
+	
+		insertPass: function insertPass(pass, index) {
+	
+			this.passes.splice(index, 0, pass);
+		},
+	
+		render: function render(delta) {
+	
+			this.writeBuffer = this.renderTarget1;
+			this.readBuffer = this.renderTarget2;
+	
+			var maskActive = false;
+	
+			var pass,
+			    i,
+			    il = this.passes.length;
+	
+			for (i = 0; i < il; i++) {
+	
+				pass = this.passes[i];
+	
+				if (!pass.enabled) continue;
+	
+				pass.render(this.renderer, this.writeBuffer, this.readBuffer, delta, maskActive);
+	
+				if (pass.needsSwap) {
+	
+					if (maskActive) {
+	
+						var context = this.renderer.context;
+	
+						context.stencilFunc(context.NOTEQUAL, 1, 0xffffffff);
+	
+						this.copyPass.render(this.renderer, this.writeBuffer, this.readBuffer, delta);
+	
+						context.stencilFunc(context.EQUAL, 1, 0xffffffff);
+					}
+	
+					this.swapBuffers();
+				}
+	
+				if (pass instanceof _MaskPass2['default']) {
+	
+					maskActive = true;
+				} else if (pass instanceof _MaskPass.ClearMaskPass) {
+	
+					maskActive = false;
+				}
+			}
+		},
+	
+		reset: function reset(renderTarget) {
+	
+			if (renderTarget === undefined) {
+	
+				renderTarget = this.renderTarget1.clone();
+	
+				var pixelRatio = this.renderer.getPixelRatio();
+	
+				renderTarget.setSize(Math.floor(this.renderer.context.canvas.width / pixelRatio), Math.floor(this.renderer.context.canvas.height / pixelRatio));
+			}
+	
+			this.renderTarget1.dispose();
+			this.renderTarget1 = renderTarget;
+			this.renderTarget2.dispose();
+			this.renderTarget2 = renderTarget.clone();
+	
+			this.writeBuffer = this.renderTarget1;
+			this.readBuffer = this.renderTarget2;
+		},
+	
+		setSize: function setSize(width, height) {
+	
+			this.renderTarget1.setSize(width, height);
+			this.renderTarget2.setSize(width, height);
+		}
+	
+	};
+	
+	exports['default'] = EffectComposer;
+	
+	_three2['default'].EffectComposer = EffectComposer;
+	module.exports = exports['default'];
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 *
+	 * Full-screen textured quad shader
+	 */
+	
+	var CopyShader = {
+	
+		uniforms: {
+	
+			"tDiffuse": { type: "t", value: null },
+			"opacity": { type: "f", value: 1.0 }
+	
+		},
+	
+		vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
+	
+		fragmentShader: ["uniform float opacity;", "uniform sampler2D tDiffuse;", "varying vec2 vUv;", "void main() {", "vec4 texel = texture2D( tDiffuse, vUv );", "gl_FragColor = opacity * texel;", "}"].join("\n")
+	
+	};
+	
+	exports["default"] = CopyShader;
+	
+	_three2["default"].CopyShader = CopyShader;
+	module.exports = exports["default"];
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 */
+	
+	var ShaderPass = function ShaderPass(shader, textureID) {
+	
+		this.textureID = textureID !== undefined ? textureID : "tDiffuse";
+	
+		if (shader instanceof _three2["default"].ShaderMaterial) {
+	
+			this.uniforms = shader.uniforms;
+	
+			this.material = shader;
+		} else if (shader) {
+	
+			this.uniforms = _three2["default"].UniformsUtils.clone(shader.uniforms);
+	
+			this.material = new _three2["default"].ShaderMaterial({
+	
+				defines: shader.defines || {},
+				uniforms: this.uniforms,
+				vertexShader: shader.vertexShader,
+				fragmentShader: shader.fragmentShader
+	
+			});
+		}
+	
+		this.renderToScreen = false;
+	
+		this.enabled = true;
+		this.needsSwap = true;
+		this.clear = false;
+	
+		this.camera = new _three2["default"].OrthographicCamera(-1, 1, 1, -1, 0, 1);
+		this.scene = new _three2["default"].Scene();
+	
+		this.quad = new _three2["default"].Mesh(new _three2["default"].PlaneBufferGeometry(2, 2), null);
+		this.scene.add(this.quad);
+	};
+	
+	ShaderPass.prototype = {
+	
+		render: function render(renderer, writeBuffer, readBuffer, delta) {
+	
+			if (this.uniforms[this.textureID]) {
+	
+				this.uniforms[this.textureID].value = readBuffer;
+			}
+	
+			this.quad.material = this.material;
+	
+			if (this.renderToScreen) {
+	
+				renderer.render(this.scene, this.camera);
+			} else {
+	
+				renderer.render(this.scene, this.camera, writeBuffer, this.clear);
+			}
+		}
+	
+	};
+	
+	exports["default"] = ShaderPass;
+	
+	_three2["default"].ShaderPass = ShaderPass;
+	module.exports = exports["default"];
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 */
+	
+	var MaskPass = function MaskPass(scene, camera) {
+	
+		this.scene = scene;
+		this.camera = camera;
+	
+		this.enabled = true;
+		this.clear = true;
+		this.needsSwap = false;
+	
+		this.inverse = false;
+	};
+	
+	MaskPass.prototype = {
+	
+		render: function render(renderer, writeBuffer, readBuffer, delta) {
+	
+			var context = renderer.context;
+	
+			// don't update color or depth
+	
+			context.colorMask(false, false, false, false);
+			context.depthMask(false);
+	
+			// set up stencil
+	
+			var writeValue, clearValue;
+	
+			if (this.inverse) {
+	
+				writeValue = 0;
+				clearValue = 1;
+			} else {
+	
+				writeValue = 1;
+				clearValue = 0;
+			}
+	
+			context.enable(context.STENCIL_TEST);
+			context.stencilOp(context.REPLACE, context.REPLACE, context.REPLACE);
+			context.stencilFunc(context.ALWAYS, writeValue, 0xffffffff);
+			context.clearStencil(clearValue);
+	
+			// draw into the stencil buffer
+	
+			renderer.render(this.scene, this.camera, readBuffer, this.clear);
+			renderer.render(this.scene, this.camera, writeBuffer, this.clear);
+	
+			// re-enable update of color and depth
+	
+			context.colorMask(true, true, true, true);
+			context.depthMask(true);
+	
+			// only render where stencil is set to 1
+	
+			context.stencilFunc(context.EQUAL, 1, 0xffffffff); // draw if == 1
+			context.stencilOp(context.KEEP, context.KEEP, context.KEEP);
+		}
+	
+	};
+	
+	var ClearMaskPass = function ClearMaskPass() {
+	
+		this.enabled = true;
+	};
+	
+	ClearMaskPass.prototype = {
+	
+		render: function render(renderer, writeBuffer, readBuffer, delta) {
+	
+			var context = renderer.context;
+	
+			context.disable(context.STENCIL_TEST);
+		}
+	
+	};
+	
+	exports['default'] = MaskPass;
+	exports.ClearMaskPass = ClearMaskPass;
+	
+	_three2['default'].MaskPass = MaskPass;
+	_three2['default'].ClearMaskPass = ClearMaskPass;
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 */
+	
+	var RenderPass = function RenderPass(scene, camera, overrideMaterial, clearColor, clearAlpha) {
+	
+		this.scene = scene;
+		this.camera = camera;
+	
+		this.overrideMaterial = overrideMaterial;
+	
+		this.clearColor = clearColor;
+		this.clearAlpha = clearAlpha !== undefined ? clearAlpha : 1;
+	
+		this.oldClearColor = new _three2['default'].Color();
+		this.oldClearAlpha = 1;
+	
+		this.enabled = true;
+		this.clear = true;
+		this.needsSwap = false;
+	};
+	
+	RenderPass.prototype = {
+	
+		render: function render(renderer, writeBuffer, readBuffer, delta) {
+	
+			this.scene.overrideMaterial = this.overrideMaterial;
+	
+			if (this.clearColor) {
+	
+				this.oldClearColor.copy(renderer.getClearColor());
+				this.oldClearAlpha = renderer.getClearAlpha();
+	
+				renderer.setClearColor(this.clearColor, this.clearAlpha);
+			}
+	
+			renderer.render(this.scene, this.camera, readBuffer, this.clear);
+	
+			if (this.clearColor) {
+	
+				renderer.setClearColor(this.oldClearColor, this.oldClearAlpha);
+			}
+	
+			this.scene.overrideMaterial = null;
+		}
+	
+	};
+	
+	exports['default'] = RenderPass;
+	
+	_three2['default'].RenderPass = RenderPass;
+	module.exports = exports['default'];
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 *
+	 * Simple fake tilt-shift effect, modulating two pass Gaussian blur (see above) by vertical position
+	 *
+	 * - 9 samples per pass
+	 * - standard deviation 2.7
+	 * - "h" and "v" parameters should be set to "1 / width" and "1 / height"
+	 * - "r" parameter control where "focused" horizontal line lies
+	 */
+	
+	var HorizontalTiltShiftShader = {
+	
+		uniforms: {
+	
+			"tDiffuse": { type: "t", value: null },
+			"h": { type: "f", value: 1.0 / 512.0 },
+			"r": { type: "f", value: 0.35 }
+	
+		},
+	
+		vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
+	
+		fragmentShader: ["uniform sampler2D tDiffuse;", "uniform float h;", "uniform float r;", "varying vec2 vUv;", "void main() {", "vec4 sum = vec4( 0.0 );", "float hh = h * abs( r - vUv.y );", "sum += texture2D( tDiffuse, vec2( vUv.x - 4.0 * hh, vUv.y ) ) * 0.051;", "sum += texture2D( tDiffuse, vec2( vUv.x - 3.0 * hh, vUv.y ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x - 2.0 * hh, vUv.y ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x - 1.0 * hh, vUv.y ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;", "sum += texture2D( tDiffuse, vec2( vUv.x + 1.0 * hh, vUv.y ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x + 2.0 * hh, vUv.y ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x + 3.0 * hh, vUv.y ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x + 4.0 * hh, vUv.y ) ) * 0.051;", "gl_FragColor = sum;", "}"].join("\n")
+	
+	};
+	
+	exports["default"] = HorizontalTiltShiftShader;
+	
+	_three2["default"].HorizontalTiltShiftShader = HorizontalTiltShiftShader;
+	module.exports = exports["default"];
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 *
+	 * Simple fake tilt-shift effect, modulating two pass Gaussian blur (see above) by vertical position
+	 *
+	 * - 9 samples per pass
+	 * - standard deviation 2.7
+	 * - "h" and "v" parameters should be set to "1 / width" and "1 / height"
+	 * - "r" parameter control where "focused" horizontal line lies
+	 */
+	
+	var VerticalTiltShiftShader = {
+	
+		uniforms: {
+	
+			"tDiffuse": { type: "t", value: null },
+			"v": { type: "f", value: 1.0 / 512.0 },
+			"r": { type: "f", value: 0.35 }
+	
+		},
+	
+		vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
+	
+		fragmentShader: ["uniform sampler2D tDiffuse;", "uniform float v;", "uniform float r;", "varying vec2 vUv;", "void main() {", "vec4 sum = vec4( 0.0 );", "float vv = v * abs( r - vUv.y );", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 4.0 * vv ) ) * 0.051;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 3.0 * vv ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 2.0 * vv ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 1.0 * vv ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 1.0 * vv ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 2.0 * vv ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 3.0 * vv ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 4.0 * vv ) ) * 0.051;", "gl_FragColor = sum;", "}"].join("\n")
+	
+	};
+	
+	exports["default"] = VerticalTiltShiftShader;
+	
+	_three2["default"].VerticalTiltShiftShader = VerticalTiltShiftShader;
+	module.exports = exports["default"];
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	
+	// jscs:disable
+	/* eslint-disable */
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	/**
+	 * @author alteredq / http://alteredqualia.com/
+	 * @author davidedc / http://www.sketchpatch.net/
+	 *
+	 * NVIDIA FXAA by Timothy Lottes
+	 * http://timothylottes.blogspot.com/2011/06/fxaa3-source-released.html
+	 * - WebGL port by @supereggbert
+	 * http://www.glge.org/demos/fxaa/
+	 */
+	
+	var FXAAShader = {
+	
+		uniforms: {
+	
+			"tDiffuse": { type: "t", value: null },
+			"resolution": { type: "v2", value: new _three2["default"].Vector2(1 / 1024, 1 / 512) }
+	
+		},
+	
+		vertexShader: ["void main() {", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
+	
+		fragmentShader: ["uniform sampler2D tDiffuse;", "uniform vec2 resolution;", "#define FXAA_REDUCE_MIN   (1.0/128.0)", "#define FXAA_REDUCE_MUL   (1.0/8.0)", "#define FXAA_SPAN_MAX     8.0", "void main() {", "vec3 rgbNW = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( -1.0, -1.0 ) ) * resolution ).xyz;", "vec3 rgbNE = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( 1.0, -1.0 ) ) * resolution ).xyz;", "vec3 rgbSW = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( -1.0, 1.0 ) ) * resolution ).xyz;", "vec3 rgbSE = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( 1.0, 1.0 ) ) * resolution ).xyz;", "vec4 rgbaM  = texture2D( tDiffuse,  gl_FragCoord.xy  * resolution );", "vec3 rgbM  = rgbaM.xyz;", "vec3 luma = vec3( 0.299, 0.587, 0.114 );", "float lumaNW = dot( rgbNW, luma );", "float lumaNE = dot( rgbNE, luma );", "float lumaSW = dot( rgbSW, luma );", "float lumaSE = dot( rgbSE, luma );", "float lumaM  = dot( rgbM,  luma );", "float lumaMin = min( lumaM, min( min( lumaNW, lumaNE ), min( lumaSW, lumaSE ) ) );", "float lumaMax = max( lumaM, max( max( lumaNW, lumaNE) , max( lumaSW, lumaSE ) ) );", "vec2 dir;", "dir.x = -((lumaNW + lumaNE) - (lumaSW + lumaSE));", "dir.y =  ((lumaNW + lumaSW) - (lumaNE + lumaSE));", "float dirReduce = max( ( lumaNW + lumaNE + lumaSW + lumaSE ) * ( 0.25 * FXAA_REDUCE_MUL ), FXAA_REDUCE_MIN );", "float rcpDirMin = 1.0 / ( min( abs( dir.x ), abs( dir.y ) ) + dirReduce );", "dir = min( vec2( FXAA_SPAN_MAX,  FXAA_SPAN_MAX),", "max( vec2(-FXAA_SPAN_MAX, -FXAA_SPAN_MAX),", "dir * rcpDirMin)) * resolution;", "vec4 rgbA = (1.0/2.0) * (", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (1.0/3.0 - 0.5)) +", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (2.0/3.0 - 0.5)));", "vec4 rgbB = rgbA * (1.0/2.0) + (1.0/4.0) * (", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (0.0/3.0 - 0.5)) +", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (3.0/3.0 - 0.5)));", "float lumaB = dot(rgbB, vec4(luma, 0.0));", "if ( ( lumaB < lumaMin ) || ( lumaB > lumaMax ) ) {", "gl_FragColor = rgbA;", "} else {", "gl_FragColor = rgbB;", "}", "}"].join("\n")
+	
+	};
+	
+	exports["default"] = FXAAShader;
+	
+	_three2["default"].FXAAShader = FXAAShader;
+	module.exports = exports["default"];
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _Layer2 = __webpack_require__(24);
+	
+	var _Layer3 = _interopRequireDefault(_Layer2);
+	
+	var _lodashAssign = __webpack_require__(3);
+	
+	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	var _Skybox = __webpack_require__(27);
+	
+	var _Skybox2 = _interopRequireDefault(_Skybox);
+	
+	// TODO: Make sure nothing is left behind in the heap after calling destroy()
+	
+	var EnvironmentLayer = (function (_Layer) {
+	  _inherits(EnvironmentLayer, _Layer);
+	
+	  function EnvironmentLayer(options) {
+	    _classCallCheck(this, EnvironmentLayer);
+	
+	    var defaults = {
+	      skybox: false
+	    };
+	
+	    var _options = (0, _lodashAssign2['default'])({}, defaults, options);
+	
+	    _get(Object.getPrototypeOf(EnvironmentLayer.prototype), 'constructor', this).call(this, _options);
+	  }
+	
+	  _createClass(EnvironmentLayer, [{
+	    key: '_onAdd',
+	    value: function _onAdd() {
+	      this._initLights();
+	
+	      if (this._options.skybox) {
+	        this._initSkybox();
+	      }
+	
+	      // this._initGrid();
+	    }
+	
+	    // Not fleshed out or thought through yet
+	    //
+	    // Lights could potentially be put it their own 'layer' to keep this class
+	    // much simpler and less messy
+	  }, {
+	    key: '_initLights',
+	    value: function _initLights() {
+	      // Position doesn't really matter (the angle is important), however it's
+	      // used here so the helpers look more natural.
+	
+	      if (!this._options.skybox) {
+	        var directionalLight = new _three2['default'].DirectionalLight(0xffffff, 1);
+	        directionalLight.position.x = 10000;
+	        directionalLight.position.y = 10000;
+	        directionalLight.position.z = 10000;
+	
+	        // TODO: Get shadows working in non-PBR scenes
+	
+	        // directionalLight.castShadow = true;
+	        //
+	        // var d = 100;
+	        // directionalLight.shadow.camera.left = -d;
+	        // directionalLight.shadow.camera.right = d;
+	        // directionalLight.shadow.camera.top = d;
+	        // directionalLight.shadow.camera.bottom = -d;
+	        //
+	        // directionalLight.shadow.camera.near = 10;
+	        // directionalLight.shadow.camera.far = 100;
+	        //
+	        // // TODO: Need to dial in on a good shadowmap size
+	        // directionalLight.shadow.mapSize.width = 2048;
+	        // directionalLight.shadow.mapSize.height = 2048;
+	        //
+	        // // directionalLight.shadowBias = -0.0010;
+	        // // directionalLight.shadow.darkness = 0.15;
+	
+	        var directionalLight2 = new _three2['default'].DirectionalLight(0xffffff, 0.5);
+	        directionalLight2.position.x = -10000;
+	        directionalLight2.position.y = 10000;
+	        directionalLight2.position.z = 0;
+	
+	        var directionalLight3 = new _three2['default'].DirectionalLight(0xffffff, 0.5);
+	        directionalLight3.position.x = 10000;
+	        directionalLight3.position.y = 10000;
+	        directionalLight3.position.z = -10000;
+	
+	        this.add(directionalLight);
+	        this.add(directionalLight2);
+	        this.add(directionalLight3);
+	
+	        // var helper = new THREE.DirectionalLightHelper(directionalLight, 10);
+	        // var helper2 = new THREE.DirectionalLightHelper(directionalLight2, 10);
+	        // var helper3 = new THREE.DirectionalLightHelper(directionalLight3, 10);
+	        //
+	        // this.add(helper);
+	        // this.add(helper2);
+	        // this.add(helper3);
+	      } else {
+	          // Directional light that will be projected from the sun
+	          this._skyboxLight = new _three2['default'].DirectionalLight(0xffffff, 1);
+	
+	          this._skyboxLight.castShadow = true;
+	
+	          var d = 10000;
+	          this._skyboxLight.shadow.camera.left = -d;
+	          this._skyboxLight.shadow.camera.right = d;
+	          this._skyboxLight.shadow.camera.top = d;
+	          this._skyboxLight.shadow.camera.bottom = -d;
+	
+	          this._skyboxLight.shadow.camera.near = 10000;
+	          this._skyboxLight.shadow.camera.far = 70000;
+	
+	          // TODO: Need to dial in on a good shadowmap size
+	          this._skyboxLight.shadow.mapSize.width = 2048;
+	          this._skyboxLight.shadow.mapSize.height = 2048;
+	
+	          // this._skyboxLight.shadowBias = -0.0010;
+	          // this._skyboxLight.shadow.darkness = 0.15;
+	
+	          // this._object3D.add(new THREE.CameraHelper(this._skyboxLight.shadow.camera));
+	
+	          this.add(this._skyboxLight);
+	        }
+	    }
+	  }, {
+	    key: '_initSkybox',
+	    value: function _initSkybox() {
+	      this._skybox = new _Skybox2['default'](this._world, this._skyboxLight);
+	      this.add(this._skybox._mesh);
+	    }
+	
+	    // Add grid helper for context during initial development
+	  }, {
+	    key: '_initGrid',
+	    value: function _initGrid() {
+	      var size = 4000;
+	      var step = 100;
+	
+	      var gridHelper = new _three2['default'].GridHelper(size, step);
+	      this.add(gridHelper);
+	    }
+	
+	    // Clean up environment
+	  }, {
+	    key: 'destroy',
+	    value: function destroy() {
+	      this._skyboxLight = null;
+	
+	      this.remove(this._skybox._mesh);
+	      this._skybox.destroy();
+	      this._skybox = null;
+	
+	      _get(Object.getPrototypeOf(EnvironmentLayer.prototype), 'destroy', this).call(this);
+	    }
+	  }]);
+	
+	  return EnvironmentLayer;
+	})(_Layer3['default']);
+	
+	exports['default'] = EnvironmentLayer;
+	
+	var noNew = function noNew(options) {
+	  return new EnvironmentLayer(options);
+	};
+	
+	// Initialise without requiring new keyword
+	exports.environmentLayer = noNew;
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _eventemitter3 = __webpack_require__(2);
+	
+	var _eventemitter32 = _interopRequireDefault(_eventemitter3);
+	
+	var _lodashAssign = __webpack_require__(3);
+	
+	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
+	
+	var _three = __webpack_require__(8);
+	
+	var _three2 = _interopRequireDefault(_three);
+	
+	var _engineScene = __webpack_require__(9);
+	
+	var _engineScene2 = _interopRequireDefault(_engineScene);
+	
+	var _vendorCSS3DRenderer = __webpack_require__(25);
+	
+	var _vendorCSS2DRenderer = __webpack_require__(26);
+	
+	// TODO: Make sure nothing is left behind in the heap after calling destroy()
+	
+	// TODO: Need a single move method that handles moving all the various object
+	// layers so that the DOM layers stay in sync with the 3D layer
+	
+	// TODO: Double check that objects within the _object3D Object3D parent are frustum
+	// culled even if the layer position stays at the default (0,0,0) and the child
+	// objects are positioned much further away
+	//
+	// Or does the layer being at (0,0,0) prevent the child objects from being
+	// culled because the layer parent is effectively always in view even if the
+	// child is actually out of camera
+	
+	var Layer = (function (_EventEmitter) {
+	  _inherits(Layer, _EventEmitter);
+	
+	  function Layer(options) {
+	    _classCallCheck(this, Layer);
+	
+	    _get(Object.getPrototypeOf(Layer.prototype), 'constructor', this).call(this);
+	
+	    var defaults = {
+	      output: true,
+	      outputToScene: true
+	    };
+	
+	    this._options = (0, _lodashAssign2['default'])({}, defaults, options);
+	
+	    if (this.isOutput()) {
+	      this._object3D = new _three2['default'].Object3D();
+	
+	      this._dom3D = document.createElement('div');
+	      this._domObject3D = new _vendorCSS3DRenderer.CSS3DObject(this._dom3D);
+	
+	      this._dom2D = document.createElement('div');
+	      this._domObject2D = new _vendorCSS2DRenderer.CSS2DObject(this._dom2D);
+	    }
+	  }
+	
+	  // Add THREE object directly to layer
+	
+	  _createClass(Layer, [{
+	    key: 'add',
+	    value: function add(object) {
+	      this._object3D.add(object);
+	    }
+	
+	    // Remove THREE object from to layer
+	  }, {
+	    key: 'remove',
+	    value: function remove(object) {
+	      this._object3D.remove(object);
+	    }
+	  }, {
+	    key: 'addDOM3D',
+	    value: function addDOM3D(object) {
+	      this._domObject3D.add(object);
+	    }
+	  }, {
+	    key: 'removeDOM3D',
+	    value: function removeDOM3D(object) {
+	      this._domObject3D.remove(object);
+	    }
+	  }, {
+	    key: 'addDOM2D',
+	    value: function addDOM2D(object) {
+	      this._domObject2D.add(object);
+	    }
+	  }, {
+	    key: 'removeDOM2D',
+	    value: function removeDOM2D(object) {
+	      this._domObject2D.remove(object);
+	    }
+	
+	    // Add layer to world instance and store world reference
+	  }, {
+	    key: 'addTo',
+	    value: function addTo(world) {
+	      world.addLayer(this);
+	      return this;
+	    }
+	
+	    // Internal method called by World.addLayer to actually add the layer
+	  }, {
+	    key: '_addToWorld',
+	    value: function _addToWorld(world) {
+	      this._world = world;
+	      this._onAdd(world);
+	      this.emit('added');
+	    }
+	  }, {
+	    key: '_onAdd',
+	    value: function _onAdd(world) {}
+	  }, {
+	    key: 'getPickingId',
+	    value: function getPickingId() {
+	      if (this._world._engine._picking) {
+	        return this._world._engine._picking.getNextId();
+	      }
+	
+	      return false;
+	    }
+	
+	    // TODO: Tidy this up and don't access so many private properties to work
+	  }, {
+	    key: 'addToPicking',
+	    value: function addToPicking(object) {
+	      if (!this._world._engine._picking) {
+	        return;
+	      }
+	
+	      this._world._engine._picking.add(object);
+	    }
+	  }, {
+	    key: 'removeFromPicking',
+	    value: function removeFromPicking(object) {
+	      if (!this._world._engine._picking) {
+	        return;
+	      }
+	
+	      this._world._engine._picking.remove(object);
+	    }
+	  }, {
+	    key: 'isOutput',
+	    value: function isOutput() {
+	      return this._options.output;
+	    }
+	  }, {
+	    key: 'isOutputToScene',
+	    value: function isOutputToScene() {
+	      return this._options.outputToScene;
+	    }
+	
+	    // Destroys the layer and removes it from the scene and memory
+	  }, {
+	    key: 'destroy',
+	    value: function destroy() {
+	      if (this._object3D && this._object3D.children) {
+	        // Remove everything else in the layer
+	        var child;
+	        for (var i = this._object3D.children.length - 1; i >= 0; i--) {
+	          child = this._object3D.children[i];
+	
+	          if (!child) {
+	            continue;
+	          }
+	
+	          this.remove(child);
+	
+	          if (child.geometry) {
+	            // Dispose of mesh and materials
+	            child.geometry.dispose();
+	            child.geometry = null;
+	          }
+	
+	          if (child.material) {
+	            if (child.material.map) {
+	              child.material.map.dispose();
+	              child.material.map = null;
+	            }
+	
+	            child.material.dispose();
+	            child.material = null;
+	          }
+	        }
+	      }
+	
+	      if (this._domObject3D && this._domObject3D.children) {
+	        // Remove everything else in the layer
+	        var child;
+	        for (var i = this._domObject3D.children.length - 1; i >= 0; i--) {
+	          child = this._domObject3D.children[i];
+	
+	          if (!child) {
+	            continue;
+	          }
+	
+	          this.removeDOM3D(child);
+	        }
+	      }
+	
+	      if (this._domObject2D && this._domObject2D.children) {
+	        // Remove everything else in the layer
+	        var child;
+	        for (var i = this._domObject2D.children.length - 1; i >= 0; i--) {
+	          child = this._domObject2D.children[i];
+	
+	          if (!child) {
+	            continue;
+	          }
+	
+	          this.removeDOM2D(child);
+	        }
+	      }
+	
+	      this._domObject3D = null;
+	      this._domObject2D = null;
+	
+	      this._world = null;
+	      this._object3D = null;
+	    }
+	  }]);
+	
+	  return Layer;
+	})(_eventemitter32['default']);
+	
+	exports['default'] = Layer;
+	
+	var noNew = function noNew(options) {
+	  return new Layer(options);
+	};
+	
+	exports.layer = noNew;
+
+/***/ },
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -2582,51 +3917,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	_three2['default'].CSS3DRenderer = CSS3DRenderer;
 
 /***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	var _vendorCSS2DRenderer = __webpack_require__(16);
-	
-	var _DOMScene2D = __webpack_require__(11);
-	
-	var _DOMScene2D2 = _interopRequireDefault(_DOMScene2D);
-	
-	// This can only be accessed from Engine.renderer if you want to reference the
-	// same scene in multiple places
-	
-	exports['default'] = function (container) {
-	  var renderer = new _vendorCSS2DRenderer.CSS2DRenderer();
-	
-	  renderer.domElement.style.position = 'absolute';
-	  renderer.domElement.style.top = 0;
-	
-	  container.appendChild(renderer.domElement);
-	
-	  var updateSize = function updateSize() {
-	    renderer.setSize(container.clientWidth, container.clientHeight);
-	  };
-	
-	  window.addEventListener('resize', updateSize, false);
-	  updateSize();
-	
-	  return renderer;
-	};
-	
-	;
-	module.exports = exports['default'];
-
-/***/ },
-/* 16 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -2755,1445 +4046,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	_three2['default'].CSS2DRenderer = CSS2DRenderer;
 
 /***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	// This can only be accessed from Engine.camera if you want to reference the
-	// same scene in multiple places
-	
-	// TODO: Ensure that FOV looks natural on all aspect ratios
-	// http://stackoverflow.com/q/26655930/997339
-	
-	exports['default'] = function (container) {
-	  var camera = new _three2['default'].PerspectiveCamera(45, 1, 1, 2000000);
-	  camera.position.y = 4000;
-	  camera.position.z = 4000;
-	
-	  var updateSize = function updateSize() {
-	    camera.aspect = container.clientWidth / container.clientHeight;
-	    camera.updateProjectionMatrix();
-	  };
-	
-	  window.addEventListener('resize', updateSize, false);
-	  updateSize();
-	
-	  return camera;
-	};
-	
-	;
-	module.exports = exports['default'];
-
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	var _geoPoint = __webpack_require__(6);
-	
-	var _PickingScene = __webpack_require__(19);
-	
-	var _PickingScene2 = _interopRequireDefault(_PickingScene);
-	
-	// TODO: Look into a way of setting this up without passing in a renderer and
-	// camera from the engine
-	
-	// TODO: Add a basic indicator on or around the mouse pointer when it is over
-	// something pickable / clickable
-	//
-	// A simple transparent disc or ring at the mouse point should work to start, or
-	// even just changing the cursor to the CSS 'pointer' style
-	//
-	// Probably want this on mousemove with a throttled update as not to spam the
-	// picking method
-	//
-	// Relies upon the picking method not redrawing the scene every call due to
-	// the way TileLayer invalidates the picking scene
-	
-	var nextId = 1;
-	
-	var Picking = (function () {
-		function Picking(world, renderer, camera) {
-			_classCallCheck(this, Picking);
-	
-			this._world = world;
-			this._renderer = renderer;
-			this._camera = camera;
-	
-			this._raycaster = new _three2['default'].Raycaster();
-	
-			// TODO: Match this with the line width used in the picking layers
-			this._raycaster.linePrecision = 3;
-	
-			this._pickingScene = _PickingScene2['default'];
-			this._pickingTexture = new _three2['default'].WebGLRenderTarget();
-			this._pickingTexture.texture.minFilter = _three2['default'].LinearFilter;
-			this._pickingTexture.texture.generateMipmaps = false;
-	
-			this._nextId = 1;
-	
-			this.mousedown = false;
-	
-			this._resizeTexture();
-			this._initEvents();
-		}
-	
-		// Initialise without requiring new keyword
-	
-		_createClass(Picking, [{
-			key: '_initEvents',
-			value: function _initEvents() {
-				this._resizeHandler = this._resizeTexture.bind(this);
-				window.addEventListener('resize', this._resizeHandler, false);
-	
-				this._mouseUpHandler = this._onMouseUp.bind(this);
-				this._mouseHandler = this._onMouse.bind(this);
-				this._mouseDownHandler = this._onMouseDown.bind(this);
-	
-				// this.mousedown = true;
-	
-				this._world._container.addEventListener('mousedown', this._mouseDownHandler, false);
-				this._world._container.addEventListener('mousemove', this._mouseHandler, false);
-				this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
-	
-				this._world.on('move', this._onWorldMove, this);
-			}
-		}, {
-			key: '_onMouse',
-			value: function _onMouse(event) {
-	
-				if (!this.mousedown) {
-					return;
-				}
-	
-				var point = (0, _geoPoint.point)(event.clientX, event.clientY);
-	
-				var normalisedPoint = (0, _geoPoint.point)(0, 0);
-				normalisedPoint.x = point.x / this._width * 2 - 1;
-				normalisedPoint.y = -(point.y / this._height) * 2 + 1;
-	
-				this._pick(point, normalisedPoint);
-			}
-		}, {
-			key: '_onMouseDown',
-			value: function _onMouseDown() {
-				this.mousedown = true;
-			}
-		}, {
-			key: '_onMouseUp',
-			value: function _onMouseUp() {
-				this.mousedown = false;
-			}
-		}, {
-			key: '_onWorldMove',
-			value: function _onWorldMove() {
-				this._needUpdate = true;
-			}
-	
-			// TODO: Ensure this doesn't get out of sync issue with the renderer resize
-		}, {
-			key: '_resizeTexture',
-			value: function _resizeTexture() {
-				var size = this._renderer.getSize();
-	
-				this._width = size.width;
-				this._height = size.height;
-	
-				this._pickingTexture.setSize(this._width, this._height);
-				this._pixelBuffer = new Uint8Array(4 * this._width * this._height);
-	
-				this._needUpdate = true;
-			}
-	
-			// TODO: Make this only re-draw the scene if both an update is needed and the
-			// camera has moved since the last update
-			//
-			// Otherwise it re-draws the scene on every click due to the way LOD updates
-			// work in TileLayer – spamming this.add() and this.remove()
-			//
-			// TODO: Pause updates during map move / orbit / zoom as this is unlikely to
-			// be a point in time where the user cares for picking functionality
-		}, {
-			key: '_update',
-			value: function _update() {
-				if (this._needUpdate) {
-					var texture = this._pickingTexture;
-	
-					this._renderer.render(this._pickingScene, this._camera, this._pickingTexture);
-	
-					// Read the rendering texture
-					this._renderer.readRenderTargetPixels(texture, 0, 0, texture.width, texture.height, this._pixelBuffer);
-	
-					this._needUpdate = false;
-				}
-			}
-		}, {
-			key: '_pick',
-			value: function _pick(point, normalisedPoint) {
-				this._update();
-	
-				var index = point.x + (this._pickingTexture.height - point.y) * this._pickingTexture.width;
-	
-				// Interpret the pixel as an ID
-				var id = this._pixelBuffer[index * 4 + 2] * 255 * 255 + this._pixelBuffer[index * 4 + 1] * 255 + this._pixelBuffer[index * 4 + 0];
-	
-				console.log(point.x, point.y, this._pickingTexture.height, this._pickingTexture.width); // ? ? ?
-	
-				// Skip if ID is 16646655 (white) as the background returns this
-				if (id === 16646655) {
-					return;
-				}
-	
-				this._raycaster.setFromCamera(normalisedPoint, this._camera);
-	
-				// Perform ray intersection on picking scene
-				//
-				// TODO: Only perform intersection test on the relevant picking mesh
-				var intersects = this._raycaster.intersectObjects(this._pickingScene.children, true);
-	
-				var _point2d = point.clone();
-	
-				var _point3d;
-				if (intersects.length > 0) {
-					_point3d = intersects[0].point.clone();
-				}
-	
-				// Pass along as much data as possible for now until we know more about how
-				// people use the picking API and what the returned data should be
-				//
-				// TODO: Look into the leak potential for passing so much by reference here
-				this._world.emit('pick', id, _point2d, _point3d, intersects);
-				this._world.emit('pick-' + id, _point2d, _point3d, intersects);
-	
-				// console.log('pick', id);
-			}
-	
-			// Add mesh to picking scene
-			//
-			// Picking ID should already be added as an attribute
-		}, {
-			key: 'add',
-			value: function add(mesh) {
-				this._pickingScene.add(mesh);
-				this._needUpdate = true;
-			}
-	
-			// Remove mesh from picking scene
-		}, {
-			key: 'remove',
-			value: function remove(mesh) {
-				this._pickingScene.remove(mesh);
-				this._needUpdate = true;
-			}
-	
-			// Returns next ID to use for picking
-		}, {
-			key: 'getNextId',
-			value: function getNextId() {
-				return nextId++;
-			}
-		}, {
-			key: 'destroy',
-			value: function destroy() {
-				// TODO: Find a way to properly remove these listeners as they stay
-				// active at the moment
-				window.removeEventListener('resize', this._resizeHandler, false);
-	
-				// TODO: put this back!
-				// this._world._container.removeEventListener('mousedown', this.onMouseDown, false);
-				// this._world._container.removeEventListener('mousemove', this._mouseHandler, false);
-				// this._world._container.removeEventListener('mouseup', this.onMouseUp, false);
-	
-				this._world.off('move', this._onWorldMove);
-	
-				if (this._pickingScene.children) {
-					// Remove everything else in the layer
-					var child;
-					for (var i = this._pickingScene.children.length - 1; i >= 0; i--) {
-						child = this._pickingScene.children[i];
-	
-						if (!child) {
-							continue;
-						}
-	
-						this._pickingScene.remove(child);
-	
-						// Probably not a good idea to dispose of geometry due to it being
-						// shared with the non-picking scene
-						// if (child.geometry) {
-						//   // Dispose of mesh and materials
-						//   child.geometry.dispose();
-						//   child.geometry = null;
-						// }
-	
-						if (child.material) {
-							if (child.material.map) {
-								child.material.map.dispose();
-								child.material.map = null;
-							}
-	
-							child.material.dispose();
-							child.material = null;
-						}
-					}
-				}
-	
-				this._pickingScene = null;
-				this._pickingTexture = null;
-				this._pixelBuffer = null;
-	
-				this._world = null;
-				this._renderer = null;
-				this._camera = null;
-			}
-		}]);
-	
-		return Picking;
-	})();
-	
-	exports['default'] = function (world, renderer, camera) {
-		return new Picking(world, renderer, camera);
-	};
-	
-	;
-	module.exports = exports['default'];
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	// This can be imported from anywhere and will still reference the same scene,
-	// though there is a helper reference in Engine.pickingScene
-	
-	exports['default'] = (function () {
-	  var scene = new _three2['default'].Scene();
-	  return scene;
-	})();
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	var _vendorEffectComposer = __webpack_require__(21);
-	
-	var _vendorEffectComposer2 = _interopRequireDefault(_vendorEffectComposer);
-	
-	exports['default'] = function (renderer, container) {
-	  var composer = new _vendorEffectComposer2['default'](renderer);
-	
-	  var updateSize = function updateSize() {
-	    // TODO: Re-enable this when perf issues can be solved
-	    //
-	    // Rendering double the resolution of the screen can be really slow
-	    // var pixelRatio = window.devicePixelRatio;
-	    var pixelRatio = 1;
-	
-	    composer.setSize(container.clientWidth * pixelRatio, container.clientHeight * pixelRatio);
-	  };
-	
-	  window.addEventListener('resize', updateSize, false);
-	  updateSize();
-	
-	  return composer;
-	};
-	
-	;
-	module.exports = exports['default'];
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	var _CopyShader = __webpack_require__(22);
-	
-	var _CopyShader2 = _interopRequireDefault(_CopyShader);
-	
-	var _ShaderPass = __webpack_require__(23);
-	
-	var _ShaderPass2 = _interopRequireDefault(_ShaderPass);
-	
-	var _MaskPass = __webpack_require__(24);
-	
-	var _MaskPass2 = _interopRequireDefault(_MaskPass);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 */
-	
-	var EffectComposer = function EffectComposer(renderer, renderTarget) {
-	
-		this.renderer = renderer;
-	
-		if (renderTarget === undefined) {
-	
-			var pixelRatio = renderer.getPixelRatio();
-	
-			var width = Math.floor(renderer.context.canvas.width / pixelRatio) || 1;
-			var height = Math.floor(renderer.context.canvas.height / pixelRatio) || 1;
-			var parameters = { minFilter: _three2['default'].LinearFilter, magFilter: _three2['default'].LinearFilter, format: _three2['default'].RGBAFormat, stencilBuffer: false };
-	
-			renderTarget = new _three2['default'].WebGLRenderTarget(width, height, parameters);
-		}
-	
-		this.renderTarget1 = renderTarget;
-		this.renderTarget2 = renderTarget.clone();
-	
-		this.writeBuffer = this.renderTarget1;
-		this.readBuffer = this.renderTarget2;
-	
-		this.passes = [];
-	
-		if (_CopyShader2['default'] === undefined) console.error("EffectComposer relies on THREE.CopyShader");
-	
-		this.copyPass = new _ShaderPass2['default'](_CopyShader2['default']);
-	};
-	
-	EffectComposer.prototype = {
-	
-		swapBuffers: function swapBuffers() {
-	
-			var tmp = this.readBuffer;
-			this.readBuffer = this.writeBuffer;
-			this.writeBuffer = tmp;
-		},
-	
-		addPass: function addPass(pass) {
-	
-			this.passes.push(pass);
-		},
-	
-		insertPass: function insertPass(pass, index) {
-	
-			this.passes.splice(index, 0, pass);
-		},
-	
-		render: function render(delta) {
-	
-			this.writeBuffer = this.renderTarget1;
-			this.readBuffer = this.renderTarget2;
-	
-			var maskActive = false;
-	
-			var pass,
-			    i,
-			    il = this.passes.length;
-	
-			for (i = 0; i < il; i++) {
-	
-				pass = this.passes[i];
-	
-				if (!pass.enabled) continue;
-	
-				pass.render(this.renderer, this.writeBuffer, this.readBuffer, delta, maskActive);
-	
-				if (pass.needsSwap) {
-	
-					if (maskActive) {
-	
-						var context = this.renderer.context;
-	
-						context.stencilFunc(context.NOTEQUAL, 1, 0xffffffff);
-	
-						this.copyPass.render(this.renderer, this.writeBuffer, this.readBuffer, delta);
-	
-						context.stencilFunc(context.EQUAL, 1, 0xffffffff);
-					}
-	
-					this.swapBuffers();
-				}
-	
-				if (pass instanceof _MaskPass2['default']) {
-	
-					maskActive = true;
-				} else if (pass instanceof _MaskPass.ClearMaskPass) {
-	
-					maskActive = false;
-				}
-			}
-		},
-	
-		reset: function reset(renderTarget) {
-	
-			if (renderTarget === undefined) {
-	
-				renderTarget = this.renderTarget1.clone();
-	
-				var pixelRatio = this.renderer.getPixelRatio();
-	
-				renderTarget.setSize(Math.floor(this.renderer.context.canvas.width / pixelRatio), Math.floor(this.renderer.context.canvas.height / pixelRatio));
-			}
-	
-			this.renderTarget1.dispose();
-			this.renderTarget1 = renderTarget;
-			this.renderTarget2.dispose();
-			this.renderTarget2 = renderTarget.clone();
-	
-			this.writeBuffer = this.renderTarget1;
-			this.readBuffer = this.renderTarget2;
-		},
-	
-		setSize: function setSize(width, height) {
-	
-			this.renderTarget1.setSize(width, height);
-			this.renderTarget2.setSize(width, height);
-		}
-	
-	};
-	
-	exports['default'] = EffectComposer;
-	
-	_three2['default'].EffectComposer = EffectComposer;
-	module.exports = exports['default'];
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 *
-	 * Full-screen textured quad shader
-	 */
-	
-	var CopyShader = {
-	
-		uniforms: {
-	
-			"tDiffuse": { type: "t", value: null },
-			"opacity": { type: "f", value: 1.0 }
-	
-		},
-	
-		vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-	
-		fragmentShader: ["uniform float opacity;", "uniform sampler2D tDiffuse;", "varying vec2 vUv;", "void main() {", "vec4 texel = texture2D( tDiffuse, vUv );", "gl_FragColor = opacity * texel;", "}"].join("\n")
-	
-	};
-	
-	exports["default"] = CopyShader;
-	
-	_three2["default"].CopyShader = CopyShader;
-	module.exports = exports["default"];
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 */
-	
-	var ShaderPass = function ShaderPass(shader, textureID) {
-	
-		this.textureID = textureID !== undefined ? textureID : "tDiffuse";
-	
-		if (shader instanceof _three2["default"].ShaderMaterial) {
-	
-			this.uniforms = shader.uniforms;
-	
-			this.material = shader;
-		} else if (shader) {
-	
-			this.uniforms = _three2["default"].UniformsUtils.clone(shader.uniforms);
-	
-			this.material = new _three2["default"].ShaderMaterial({
-	
-				defines: shader.defines || {},
-				uniforms: this.uniforms,
-				vertexShader: shader.vertexShader,
-				fragmentShader: shader.fragmentShader
-	
-			});
-		}
-	
-		this.renderToScreen = false;
-	
-		this.enabled = true;
-		this.needsSwap = true;
-		this.clear = false;
-	
-		this.camera = new _three2["default"].OrthographicCamera(-1, 1, 1, -1, 0, 1);
-		this.scene = new _three2["default"].Scene();
-	
-		this.quad = new _three2["default"].Mesh(new _three2["default"].PlaneBufferGeometry(2, 2), null);
-		this.scene.add(this.quad);
-	};
-	
-	ShaderPass.prototype = {
-	
-		render: function render(renderer, writeBuffer, readBuffer, delta) {
-	
-			if (this.uniforms[this.textureID]) {
-	
-				this.uniforms[this.textureID].value = readBuffer;
-			}
-	
-			this.quad.material = this.material;
-	
-			if (this.renderToScreen) {
-	
-				renderer.render(this.scene, this.camera);
-			} else {
-	
-				renderer.render(this.scene, this.camera, writeBuffer, this.clear);
-			}
-		}
-	
-	};
-	
-	exports["default"] = ShaderPass;
-	
-	_three2["default"].ShaderPass = ShaderPass;
-	module.exports = exports["default"];
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 */
-	
-	var MaskPass = function MaskPass(scene, camera) {
-	
-		this.scene = scene;
-		this.camera = camera;
-	
-		this.enabled = true;
-		this.clear = true;
-		this.needsSwap = false;
-	
-		this.inverse = false;
-	};
-	
-	MaskPass.prototype = {
-	
-		render: function render(renderer, writeBuffer, readBuffer, delta) {
-	
-			var context = renderer.context;
-	
-			// don't update color or depth
-	
-			context.colorMask(false, false, false, false);
-			context.depthMask(false);
-	
-			// set up stencil
-	
-			var writeValue, clearValue;
-	
-			if (this.inverse) {
-	
-				writeValue = 0;
-				clearValue = 1;
-			} else {
-	
-				writeValue = 1;
-				clearValue = 0;
-			}
-	
-			context.enable(context.STENCIL_TEST);
-			context.stencilOp(context.REPLACE, context.REPLACE, context.REPLACE);
-			context.stencilFunc(context.ALWAYS, writeValue, 0xffffffff);
-			context.clearStencil(clearValue);
-	
-			// draw into the stencil buffer
-	
-			renderer.render(this.scene, this.camera, readBuffer, this.clear);
-			renderer.render(this.scene, this.camera, writeBuffer, this.clear);
-	
-			// re-enable update of color and depth
-	
-			context.colorMask(true, true, true, true);
-			context.depthMask(true);
-	
-			// only render where stencil is set to 1
-	
-			context.stencilFunc(context.EQUAL, 1, 0xffffffff); // draw if == 1
-			context.stencilOp(context.KEEP, context.KEEP, context.KEEP);
-		}
-	
-	};
-	
-	var ClearMaskPass = function ClearMaskPass() {
-	
-		this.enabled = true;
-	};
-	
-	ClearMaskPass.prototype = {
-	
-		render: function render(renderer, writeBuffer, readBuffer, delta) {
-	
-			var context = renderer.context;
-	
-			context.disable(context.STENCIL_TEST);
-		}
-	
-	};
-	
-	exports['default'] = MaskPass;
-	exports.ClearMaskPass = ClearMaskPass;
-	
-	_three2['default'].MaskPass = MaskPass;
-	_three2['default'].ClearMaskPass = ClearMaskPass;
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 */
-	
-	var RenderPass = function RenderPass(scene, camera, overrideMaterial, clearColor, clearAlpha) {
-	
-		this.scene = scene;
-		this.camera = camera;
-	
-		this.overrideMaterial = overrideMaterial;
-	
-		this.clearColor = clearColor;
-		this.clearAlpha = clearAlpha !== undefined ? clearAlpha : 1;
-	
-		this.oldClearColor = new _three2['default'].Color();
-		this.oldClearAlpha = 1;
-	
-		this.enabled = true;
-		this.clear = true;
-		this.needsSwap = false;
-	};
-	
-	RenderPass.prototype = {
-	
-		render: function render(renderer, writeBuffer, readBuffer, delta) {
-	
-			this.scene.overrideMaterial = this.overrideMaterial;
-	
-			if (this.clearColor) {
-	
-				this.oldClearColor.copy(renderer.getClearColor());
-				this.oldClearAlpha = renderer.getClearAlpha();
-	
-				renderer.setClearColor(this.clearColor, this.clearAlpha);
-			}
-	
-			renderer.render(this.scene, this.camera, readBuffer, this.clear);
-	
-			if (this.clearColor) {
-	
-				renderer.setClearColor(this.oldClearColor, this.oldClearAlpha);
-			}
-	
-			this.scene.overrideMaterial = null;
-		}
-	
-	};
-	
-	exports['default'] = RenderPass;
-	
-	_three2['default'].RenderPass = RenderPass;
-	module.exports = exports['default'];
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 *
-	 * Simple fake tilt-shift effect, modulating two pass Gaussian blur (see above) by vertical position
-	 *
-	 * - 9 samples per pass
-	 * - standard deviation 2.7
-	 * - "h" and "v" parameters should be set to "1 / width" and "1 / height"
-	 * - "r" parameter control where "focused" horizontal line lies
-	 */
-	
-	var HorizontalTiltShiftShader = {
-	
-		uniforms: {
-	
-			"tDiffuse": { type: "t", value: null },
-			"h": { type: "f", value: 1.0 / 512.0 },
-			"r": { type: "f", value: 0.35 }
-	
-		},
-	
-		vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-	
-		fragmentShader: ["uniform sampler2D tDiffuse;", "uniform float h;", "uniform float r;", "varying vec2 vUv;", "void main() {", "vec4 sum = vec4( 0.0 );", "float hh = h * abs( r - vUv.y );", "sum += texture2D( tDiffuse, vec2( vUv.x - 4.0 * hh, vUv.y ) ) * 0.051;", "sum += texture2D( tDiffuse, vec2( vUv.x - 3.0 * hh, vUv.y ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x - 2.0 * hh, vUv.y ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x - 1.0 * hh, vUv.y ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;", "sum += texture2D( tDiffuse, vec2( vUv.x + 1.0 * hh, vUv.y ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x + 2.0 * hh, vUv.y ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x + 3.0 * hh, vUv.y ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x + 4.0 * hh, vUv.y ) ) * 0.051;", "gl_FragColor = sum;", "}"].join("\n")
-	
-	};
-	
-	exports["default"] = HorizontalTiltShiftShader;
-	
-	_three2["default"].HorizontalTiltShiftShader = HorizontalTiltShiftShader;
-	module.exports = exports["default"];
-
-/***/ },
 /* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 *
-	 * Simple fake tilt-shift effect, modulating two pass Gaussian blur (see above) by vertical position
-	 *
-	 * - 9 samples per pass
-	 * - standard deviation 2.7
-	 * - "h" and "v" parameters should be set to "1 / width" and "1 / height"
-	 * - "r" parameter control where "focused" horizontal line lies
-	 */
-	
-	var VerticalTiltShiftShader = {
-	
-		uniforms: {
-	
-			"tDiffuse": { type: "t", value: null },
-			"v": { type: "f", value: 1.0 / 512.0 },
-			"r": { type: "f", value: 0.35 }
-	
-		},
-	
-		vertexShader: ["varying vec2 vUv;", "void main() {", "vUv = uv;", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-	
-		fragmentShader: ["uniform sampler2D tDiffuse;", "uniform float v;", "uniform float r;", "varying vec2 vUv;", "void main() {", "vec4 sum = vec4( 0.0 );", "float vv = v * abs( r - vUv.y );", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 4.0 * vv ) ) * 0.051;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 3.0 * vv ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 2.0 * vv ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y - 1.0 * vv ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y ) ) * 0.1633;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 1.0 * vv ) ) * 0.1531;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 2.0 * vv ) ) * 0.12245;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 3.0 * vv ) ) * 0.0918;", "sum += texture2D( tDiffuse, vec2( vUv.x, vUv.y + 4.0 * vv ) ) * 0.051;", "gl_FragColor = sum;", "}"].join("\n")
-	
-	};
-	
-	exports["default"] = VerticalTiltShiftShader;
-	
-	_three2["default"].VerticalTiltShiftShader = VerticalTiltShiftShader;
-	module.exports = exports["default"];
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-	
-	// jscs:disable
-	/* eslint-disable */
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	/**
-	 * @author alteredq / http://alteredqualia.com/
-	 * @author davidedc / http://www.sketchpatch.net/
-	 *
-	 * NVIDIA FXAA by Timothy Lottes
-	 * http://timothylottes.blogspot.com/2011/06/fxaa3-source-released.html
-	 * - WebGL port by @supereggbert
-	 * http://www.glge.org/demos/fxaa/
-	 */
-	
-	var FXAAShader = {
-	
-		uniforms: {
-	
-			"tDiffuse": { type: "t", value: null },
-			"resolution": { type: "v2", value: new _three2["default"].Vector2(1 / 1024, 1 / 512) }
-	
-		},
-	
-		vertexShader: ["void main() {", "gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );", "}"].join("\n"),
-	
-		fragmentShader: ["uniform sampler2D tDiffuse;", "uniform vec2 resolution;", "#define FXAA_REDUCE_MIN   (1.0/128.0)", "#define FXAA_REDUCE_MUL   (1.0/8.0)", "#define FXAA_SPAN_MAX     8.0", "void main() {", "vec3 rgbNW = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( -1.0, -1.0 ) ) * resolution ).xyz;", "vec3 rgbNE = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( 1.0, -1.0 ) ) * resolution ).xyz;", "vec3 rgbSW = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( -1.0, 1.0 ) ) * resolution ).xyz;", "vec3 rgbSE = texture2D( tDiffuse, ( gl_FragCoord.xy + vec2( 1.0, 1.0 ) ) * resolution ).xyz;", "vec4 rgbaM  = texture2D( tDiffuse,  gl_FragCoord.xy  * resolution );", "vec3 rgbM  = rgbaM.xyz;", "vec3 luma = vec3( 0.299, 0.587, 0.114 );", "float lumaNW = dot( rgbNW, luma );", "float lumaNE = dot( rgbNE, luma );", "float lumaSW = dot( rgbSW, luma );", "float lumaSE = dot( rgbSE, luma );", "float lumaM  = dot( rgbM,  luma );", "float lumaMin = min( lumaM, min( min( lumaNW, lumaNE ), min( lumaSW, lumaSE ) ) );", "float lumaMax = max( lumaM, max( max( lumaNW, lumaNE) , max( lumaSW, lumaSE ) ) );", "vec2 dir;", "dir.x = -((lumaNW + lumaNE) - (lumaSW + lumaSE));", "dir.y =  ((lumaNW + lumaSW) - (lumaNE + lumaSE));", "float dirReduce = max( ( lumaNW + lumaNE + lumaSW + lumaSE ) * ( 0.25 * FXAA_REDUCE_MUL ), FXAA_REDUCE_MIN );", "float rcpDirMin = 1.0 / ( min( abs( dir.x ), abs( dir.y ) ) + dirReduce );", "dir = min( vec2( FXAA_SPAN_MAX,  FXAA_SPAN_MAX),", "max( vec2(-FXAA_SPAN_MAX, -FXAA_SPAN_MAX),", "dir * rcpDirMin)) * resolution;", "vec4 rgbA = (1.0/2.0) * (", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (1.0/3.0 - 0.5)) +", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (2.0/3.0 - 0.5)));", "vec4 rgbB = rgbA * (1.0/2.0) + (1.0/4.0) * (", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (0.0/3.0 - 0.5)) +", "texture2D(tDiffuse,  gl_FragCoord.xy  * resolution + dir * (3.0/3.0 - 0.5)));", "float lumaB = dot(rgbB, vec4(luma, 0.0));", "if ( ( lumaB < lumaMin ) || ( lumaB > lumaMax ) ) {", "gl_FragColor = rgbA;", "} else {", "gl_FragColor = rgbB;", "}", "}"].join("\n")
-	
-	};
-	
-	exports["default"] = FXAAShader;
-	
-	_three2["default"].FXAAShader = FXAAShader;
-	module.exports = exports["default"];
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _Layer2 = __webpack_require__(30);
-	
-	var _Layer3 = _interopRequireDefault(_Layer2);
-	
-	var _lodashAssign = __webpack_require__(3);
-	
-	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	var _Skybox = __webpack_require__(31);
-	
-	var _Skybox2 = _interopRequireDefault(_Skybox);
-	
-	// TODO: Make sure nothing is left behind in the heap after calling destroy()
-	
-	var EnvironmentLayer = (function (_Layer) {
-	  _inherits(EnvironmentLayer, _Layer);
-	
-	  function EnvironmentLayer(options) {
-	    _classCallCheck(this, EnvironmentLayer);
-	
-	    var defaults = {
-	      skybox: false
-	    };
-	
-	    var _options = (0, _lodashAssign2['default'])({}, defaults, options);
-	
-	    _get(Object.getPrototypeOf(EnvironmentLayer.prototype), 'constructor', this).call(this, _options);
-	  }
-	
-	  _createClass(EnvironmentLayer, [{
-	    key: '_onAdd',
-	    value: function _onAdd() {
-	      this._initLights();
-	
-	      if (this._options.skybox) {
-	        this._initSkybox();
-	      }
-	
-	      // this._initGrid();
-	    }
-	
-	    // Not fleshed out or thought through yet
-	    //
-	    // Lights could potentially be put it their own 'layer' to keep this class
-	    // much simpler and less messy
-	  }, {
-	    key: '_initLights',
-	    value: function _initLights() {
-	      // Position doesn't really matter (the angle is important), however it's
-	      // used here so the helpers look more natural.
-	
-	      if (!this._options.skybox) {
-	        var directionalLight = new _three2['default'].DirectionalLight(0xffffff, 1);
-	        directionalLight.position.x = 10000;
-	        directionalLight.position.y = 10000;
-	        directionalLight.position.z = 10000;
-	
-	        // TODO: Get shadows working in non-PBR scenes
-	
-	        // directionalLight.castShadow = true;
-	        //
-	        // var d = 100;
-	        // directionalLight.shadow.camera.left = -d;
-	        // directionalLight.shadow.camera.right = d;
-	        // directionalLight.shadow.camera.top = d;
-	        // directionalLight.shadow.camera.bottom = -d;
-	        //
-	        // directionalLight.shadow.camera.near = 10;
-	        // directionalLight.shadow.camera.far = 100;
-	        //
-	        // // TODO: Need to dial in on a good shadowmap size
-	        // directionalLight.shadow.mapSize.width = 2048;
-	        // directionalLight.shadow.mapSize.height = 2048;
-	        //
-	        // // directionalLight.shadowBias = -0.0010;
-	        // // directionalLight.shadow.darkness = 0.15;
-	
-	        var directionalLight2 = new _three2['default'].DirectionalLight(0xffffff, 0.5);
-	        directionalLight2.position.x = -10000;
-	        directionalLight2.position.y = 10000;
-	        directionalLight2.position.z = 0;
-	
-	        var directionalLight3 = new _three2['default'].DirectionalLight(0xffffff, 0.5);
-	        directionalLight3.position.x = 10000;
-	        directionalLight3.position.y = 10000;
-	        directionalLight3.position.z = -10000;
-	
-	        this.add(directionalLight);
-	        this.add(directionalLight2);
-	        this.add(directionalLight3);
-	
-	        // var helper = new THREE.DirectionalLightHelper(directionalLight, 10);
-	        // var helper2 = new THREE.DirectionalLightHelper(directionalLight2, 10);
-	        // var helper3 = new THREE.DirectionalLightHelper(directionalLight3, 10);
-	        //
-	        // this.add(helper);
-	        // this.add(helper2);
-	        // this.add(helper3);
-	      } else {
-	          // Directional light that will be projected from the sun
-	          this._skyboxLight = new _three2['default'].DirectionalLight(0xffffff, 1);
-	
-	          this._skyboxLight.castShadow = true;
-	
-	          var d = 10000;
-	          this._skyboxLight.shadow.camera.left = -d;
-	          this._skyboxLight.shadow.camera.right = d;
-	          this._skyboxLight.shadow.camera.top = d;
-	          this._skyboxLight.shadow.camera.bottom = -d;
-	
-	          this._skyboxLight.shadow.camera.near = 10000;
-	          this._skyboxLight.shadow.camera.far = 70000;
-	
-	          // TODO: Need to dial in on a good shadowmap size
-	          this._skyboxLight.shadow.mapSize.width = 2048;
-	          this._skyboxLight.shadow.mapSize.height = 2048;
-	
-	          // this._skyboxLight.shadowBias = -0.0010;
-	          // this._skyboxLight.shadow.darkness = 0.15;
-	
-	          // this._object3D.add(new THREE.CameraHelper(this._skyboxLight.shadow.camera));
-	
-	          this.add(this._skyboxLight);
-	        }
-	    }
-	  }, {
-	    key: '_initSkybox',
-	    value: function _initSkybox() {
-	      this._skybox = new _Skybox2['default'](this._world, this._skyboxLight);
-	      this.add(this._skybox._mesh);
-	    }
-	
-	    // Add grid helper for context during initial development
-	  }, {
-	    key: '_initGrid',
-	    value: function _initGrid() {
-	      var size = 4000;
-	      var step = 100;
-	
-	      var gridHelper = new _three2['default'].GridHelper(size, step);
-	      this.add(gridHelper);
-	    }
-	
-	    // Clean up environment
-	  }, {
-	    key: 'destroy',
-	    value: function destroy() {
-	      this._skyboxLight = null;
-	
-	      this.remove(this._skybox._mesh);
-	      this._skybox.destroy();
-	      this._skybox = null;
-	
-	      _get(Object.getPrototypeOf(EnvironmentLayer.prototype), 'destroy', this).call(this);
-	    }
-	  }]);
-	
-	  return EnvironmentLayer;
-	})(_Layer3['default']);
-	
-	exports['default'] = EnvironmentLayer;
-	
-	var noNew = function noNew(options) {
-	  return new EnvironmentLayer(options);
-	};
-	
-	// Initialise without requiring new keyword
-	exports.environmentLayer = noNew;
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _eventemitter3 = __webpack_require__(2);
-	
-	var _eventemitter32 = _interopRequireDefault(_eventemitter3);
-	
-	var _lodashAssign = __webpack_require__(3);
-	
-	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
-	
-	var _three = __webpack_require__(8);
-	
-	var _three2 = _interopRequireDefault(_three);
-	
-	var _engineScene = __webpack_require__(9);
-	
-	var _engineScene2 = _interopRequireDefault(_engineScene);
-	
-	var _vendorCSS3DRenderer = __webpack_require__(14);
-	
-	var _vendorCSS2DRenderer = __webpack_require__(16);
-	
-	// TODO: Make sure nothing is left behind in the heap after calling destroy()
-	
-	// TODO: Need a single move method that handles moving all the various object
-	// layers so that the DOM layers stay in sync with the 3D layer
-	
-	// TODO: Double check that objects within the _object3D Object3D parent are frustum
-	// culled even if the layer position stays at the default (0,0,0) and the child
-	// objects are positioned much further away
-	//
-	// Or does the layer being at (0,0,0) prevent the child objects from being
-	// culled because the layer parent is effectively always in view even if the
-	// child is actually out of camera
-	
-	var Layer = (function (_EventEmitter) {
-	  _inherits(Layer, _EventEmitter);
-	
-	  function Layer(options) {
-	    _classCallCheck(this, Layer);
-	
-	    _get(Object.getPrototypeOf(Layer.prototype), 'constructor', this).call(this);
-	
-	    var defaults = {
-	      output: true,
-	      outputToScene: true
-	    };
-	
-	    this._options = (0, _lodashAssign2['default'])({}, defaults, options);
-	
-	    if (this.isOutput()) {
-	      this._object3D = new _three2['default'].Object3D();
-	
-	      this._dom3D = document.createElement('div');
-	      this._domObject3D = new _vendorCSS3DRenderer.CSS3DObject(this._dom3D);
-	
-	      this._dom2D = document.createElement('div');
-	      this._domObject2D = new _vendorCSS2DRenderer.CSS2DObject(this._dom2D);
-	    }
-	  }
-	
-	  // Add THREE object directly to layer
-	
-	  _createClass(Layer, [{
-	    key: 'add',
-	    value: function add(object) {
-	      this._object3D.add(object);
-	    }
-	
-	    // Remove THREE object from to layer
-	  }, {
-	    key: 'remove',
-	    value: function remove(object) {
-	      this._object3D.remove(object);
-	    }
-	  }, {
-	    key: 'addDOM3D',
-	    value: function addDOM3D(object) {
-	      this._domObject3D.add(object);
-	    }
-	  }, {
-	    key: 'removeDOM3D',
-	    value: function removeDOM3D(object) {
-	      this._domObject3D.remove(object);
-	    }
-	  }, {
-	    key: 'addDOM2D',
-	    value: function addDOM2D(object) {
-	      this._domObject2D.add(object);
-	    }
-	  }, {
-	    key: 'removeDOM2D',
-	    value: function removeDOM2D(object) {
-	      this._domObject2D.remove(object);
-	    }
-	
-	    // Add layer to world instance and store world reference
-	  }, {
-	    key: 'addTo',
-	    value: function addTo(world) {
-	      world.addLayer(this);
-	      return this;
-	    }
-	
-	    // Internal method called by World.addLayer to actually add the layer
-	  }, {
-	    key: '_addToWorld',
-	    value: function _addToWorld(world) {
-	      this._world = world;
-	      this._onAdd(world);
-	      this.emit('added');
-	    }
-	  }, {
-	    key: '_onAdd',
-	    value: function _onAdd(world) {}
-	  }, {
-	    key: 'getPickingId',
-	    value: function getPickingId() {
-	      if (this._world._engine._picking) {
-	        return this._world._engine._picking.getNextId();
-	      }
-	
-	      return false;
-	    }
-	
-	    // TODO: Tidy this up and don't access so many private properties to work
-	  }, {
-	    key: 'addToPicking',
-	    value: function addToPicking(object) {
-	      if (!this._world._engine._picking) {
-	        return;
-	      }
-	
-	      this._world._engine._picking.add(object);
-	    }
-	  }, {
-	    key: 'removeFromPicking',
-	    value: function removeFromPicking(object) {
-	      if (!this._world._engine._picking) {
-	        return;
-	      }
-	
-	      this._world._engine._picking.remove(object);
-	    }
-	  }, {
-	    key: 'isOutput',
-	    value: function isOutput() {
-	      return this._options.output;
-	    }
-	  }, {
-	    key: 'isOutputToScene',
-	    value: function isOutputToScene() {
-	      return this._options.outputToScene;
-	    }
-	
-	    // Destroys the layer and removes it from the scene and memory
-	  }, {
-	    key: 'destroy',
-	    value: function destroy() {
-	      if (this._object3D && this._object3D.children) {
-	        // Remove everything else in the layer
-	        var child;
-	        for (var i = this._object3D.children.length - 1; i >= 0; i--) {
-	          child = this._object3D.children[i];
-	
-	          if (!child) {
-	            continue;
-	          }
-	
-	          this.remove(child);
-	
-	          if (child.geometry) {
-	            // Dispose of mesh and materials
-	            child.geometry.dispose();
-	            child.geometry = null;
-	          }
-	
-	          if (child.material) {
-	            if (child.material.map) {
-	              child.material.map.dispose();
-	              child.material.map = null;
-	            }
-	
-	            child.material.dispose();
-	            child.material = null;
-	          }
-	        }
-	      }
-	
-	      if (this._domObject3D && this._domObject3D.children) {
-	        // Remove everything else in the layer
-	        var child;
-	        for (var i = this._domObject3D.children.length - 1; i >= 0; i--) {
-	          child = this._domObject3D.children[i];
-	
-	          if (!child) {
-	            continue;
-	          }
-	
-	          this.removeDOM3D(child);
-	        }
-	      }
-	
-	      if (this._domObject2D && this._domObject2D.children) {
-	        // Remove everything else in the layer
-	        var child;
-	        for (var i = this._domObject2D.children.length - 1; i >= 0; i--) {
-	          child = this._domObject2D.children[i];
-	
-	          if (!child) {
-	            continue;
-	          }
-	
-	          this.removeDOM2D(child);
-	        }
-	      }
-	
-	      this._domObject3D = null;
-	      this._domObject2D = null;
-	
-	      this._world = null;
-	      this._object3D = null;
-	    }
-	  }]);
-	
-	  return Layer;
-	})(_eventemitter32['default']);
-	
-	exports['default'] = Layer;
-	
-	var noNew = function noNew(options) {
-	  return new Layer(options);
-	};
-	
-	exports.layer = noNew;
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
@@ -4208,11 +4063,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _Sky = __webpack_require__(32);
+	var _Sky = __webpack_require__(28);
 	
 	var _Sky2 = _interopRequireDefault(_Sky);
 	
-	var _lodashThrottle = __webpack_require__(33);
+	var _lodashThrottle = __webpack_require__(29);
 	
 	var _lodashThrottle2 = _interopRequireDefault(_lodashThrottle);
 	
@@ -4424,7 +4279,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.skybox = noNew;
 
 /***/ },
-/* 32 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -4507,7 +4362,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 33 */
+/* 29 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -4953,7 +4808,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 34 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -4962,7 +4817,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _ControlsOrbit = __webpack_require__(35);
+	var _ControlsOrbit = __webpack_require__(31);
 	
 	var _ControlsOrbit2 = _interopRequireDefault(_ControlsOrbit);
 	
@@ -4975,7 +4830,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 35 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -5000,11 +4855,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _vendorOrbitControls = __webpack_require__(36);
+	var _vendorOrbitControls = __webpack_require__(32);
 	
 	var _vendorOrbitControls2 = _interopRequireDefault(_vendorOrbitControls);
 	
-	var _TweenLite = __webpack_require__(38);
+	var _TweenLite = __webpack_require__(34);
 	
 	var _TweenLite2 = _interopRequireDefault(_TweenLite);
 	
@@ -5288,7 +5143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.orbit = noNew;
 
 /***/ },
-/* 36 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -5304,7 +5159,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _hammerjs = __webpack_require__(37);
+	var _hammerjs = __webpack_require__(33);
 	
 	var _hammerjs2 = _interopRequireDefault(_hammerjs);
 	
@@ -6476,7 +6331,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 37 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -9125,13 +8980,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 38 */
+/* 34 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_38__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_34__;
 
 /***/ },
-/* 39 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -9148,15 +9003,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _TileLayer2 = __webpack_require__(40);
+	var _TileLayer2 = __webpack_require__(36);
 	
 	var _TileLayer3 = _interopRequireDefault(_TileLayer2);
 	
-	var _ImageTile = __webpack_require__(50);
+	var _ImageTile = __webpack_require__(46);
 	
 	var _ImageTile2 = _interopRequireDefault(_ImageTile);
 	
-	var _lodashThrottle = __webpack_require__(33);
+	var _lodashThrottle = __webpack_require__(29);
 	
 	var _lodashThrottle2 = _interopRequireDefault(_lodashThrottle);
 	
@@ -9226,7 +9081,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, ImageTileLayer);
 	
 	    var defaults = {
-	      distance: 100000
+	      distance: 100000,
+	      minLOD: 4
 	    };
 	
 	    options = (0, _lodashAssign2['default'])({}, defaults, options);
@@ -9270,7 +9126,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: '_onWorldUpdate',
 	    value: function _onWorldUpdate() {
-	      this._calculateLOD();
+	      // this._calculateLOD();
 	      this._outputTiles();
 	    }
 	  }, {
@@ -9331,11 +9187,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.imageTileLayer = noNew;
 
 /***/ },
-/* 40 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+		value: true
 	});
 	
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -9348,7 +9204,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _Layer2 = __webpack_require__(30);
+	var _Layer2 = __webpack_require__(24);
 	
 	var _Layer3 = _interopRequireDefault(_Layer2);
 	
@@ -9356,7 +9212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
 	
-	var _TileCache = __webpack_require__(41);
+	var _TileCache = __webpack_require__(37);
 	
 	var _TileCache2 = _interopRequireDefault(_TileCache);
 	
@@ -9413,351 +9269,374 @@ return /******/ (function(modules) { // webpackBootstrap
 	// closest to the camera) so visual inconsistancies during loading are minimised
 	
 	var TileLayer = (function (_Layer) {
-	  _inherits(TileLayer, _Layer);
-	
-	  function TileLayer(options) {
-	    var _this = this;
-	
-	    _classCallCheck(this, TileLayer);
-	
-	    var defaults = {
-	      picking: false,
-	      maxCache: 1000,
-	      maxLOD: 18
-	    };
-	
-	    var _options = (0, _lodashAssign2['default'])({}, defaults, options);
-	
-	    _get(Object.getPrototypeOf(TileLayer.prototype), 'constructor', this).call(this, _options);
-	
-	    this._tileCache = new _TileCache2['default'](this._options.maxCache, function (tile) {
-	      _this._destroyTile(tile);
-	    });
-	
-	    // List of tiles from the previous LOD calculation
-	    this._tileList = [];
-	
-	    // TODO: Work out why changing the minLOD causes loads of issues
-	    this._minLOD = 3;
-	    this._maxLOD = this._options.maxLOD;
-	
-	    this._frustum = new _three2['default'].Frustum();
-	    this._tiles = new _three2['default'].Object3D();
-	    this._tilesPicking = new _three2['default'].Object3D();
-	  }
-	
-	  _createClass(TileLayer, [{
-	    key: '_onAdd',
-	    value: function _onAdd(world) {
-	      this.addToPicking(this._tilesPicking);
-	      this.add(this._tiles);
-	    }
-	  }, {
-	    key: '_updateFrustum',
-	    value: function _updateFrustum() {
-	      var camera = this._world.getCamera();
-	      var projScreenMatrix = new _three2['default'].Matrix4();
-	      projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
-	
-	      this._frustum.setFromMatrix(camera.projectionMatrix);
-	      this._frustum.setFromMatrix(new _three2['default'].Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
-	    }
-	  }, {
-	    key: '_tileInFrustum',
-	    value: function _tileInFrustum(tile) {
-	      var bounds = tile.getBounds();
-	      return this._frustum.intersectsBox(new _three2['default'].Box3(new _three2['default'].Vector3(bounds[0], 0, bounds[3]), new _three2['default'].Vector3(bounds[2], 0, bounds[1])));
-	    }
-	
-	    // Update and output tiles from the previous LOD checklist
-	  }, {
-	    key: '_outputTiles',
-	    value: function _outputTiles() {
-	      var _this2 = this;
-	
-	      if (!this._tiles) {
-	        return;
-	      }
-	
-	      // Remove all tiles from layer
-	      this._removeTiles();
-	
-	      // Add / re-add tiles
-	      this._tileList.forEach(function (tile) {
-	        // Are the mesh and texture ready?
-	        //
-	        // If yes, continue
-	        // If no, skip
-	        if (!tile.isReady()) {
-	          return;
-	        }
-	
-	        // Add tile to layer (and to scene) if not already there
-	        _this2._tiles.add(tile.getMesh());
-	
-	        if (tile.getPickingMesh()) {
-	          _this2._tilesPicking.add(tile.getPickingMesh());
-	        }
-	      });
-	    }
-	
-	    // Works out tiles in the view frustum and stores them in an array
-	    //
-	    // Does not output the tiles, deferring this to _outputTiles()
-	  }, {
-	    key: '_calculateLOD',
-	    value: function _calculateLOD() {
-	      var _this3 = this;
-	
-	      if (this._stop || !this._world) {
-	        return;
-	      }
-	
-	      // var start = performance.now();
-	
-	      var camera = this._world.getCamera();
-	
-	      // 1. Update and retrieve camera frustum
-	      this._updateFrustum(this._frustum, camera);
-	
-	      // 2. Add the four root items of the quadtree to a check list
-	      var checkList = this._checklist;
-	      checkList = [];
-	      checkList.push(this._requestTile('0', this));
-	      checkList.push(this._requestTile('1', this));
-	      checkList.push(this._requestTile('2', this));
-	      checkList.push(this._requestTile('3', this));
-	
-	      // 3. Call Divide, passing in the check list
-	      this._divide(checkList);
-	
-	      // // 4. Remove all tiles from layer
-	      //
-	      // Moved to _outputTiles() for now
-	      // this._removeTiles();
-	
-	      // Order tile-list by zoom so nearest tiles are requested first
-	      checkList.sort(function (a, b) {
-	        return a._quadcode.length < b._quadcode.length;
-	      });
-	
-	      // 5. Filter the tiles remaining in the check list
-	      this._tileList = checkList.filter(function (tile, index) {
-	        // Skip tile if it's not in the current view frustum
-	        // if (!this._tileInFrustum(tile)) {
-	        //   return false;
-	        // }
-	
-	        if (_this3._options.distance && _this3._options.distance > 0) {
-	          // TODO: Can probably speed this up
-	          var center = tile.getCenter();
-	          var dist = new _three2['default'].Vector3(center[0], 0, center[1]).sub(camera.position).length();
-	
-	          // Manual distance limit to cut down on tiles so far away
-	          if (dist > _this3._options.distance) {
-	            return false;
-	          }
-	        }
-	
-	        // Does the tile have a mesh?
-	        //
-	        // If yes, continue
-	        // If no, generate tile mesh, request texture and skip
-	        if (!tile.getMesh()) {
-	          tile.requestTileAsync();
-	        }
-	
-	        return true;
-	
-	        // Are the mesh and texture ready?
-	        //
-	        // If yes, continue
-	        // If no, skip
-	        // if (!tile.isReady()) {
-	        //   return;
-	        // }
-	        //
-	        // // Add tile to layer (and to scene)
-	        // this._tiles.add(tile.getMesh());
-	      });
-	
-	      // console.log(performance.now() - start);
-	    }
-	  }, {
-	    key: '_divide',
-	    value: function _divide(checkList) {
-	      var count = 0;
-	      var currentItem;
-	      var quadcode;
-	
-	      // 1. Loop until count equals check list length
-	      while (count != checkList.length) {
-	        currentItem = checkList[count];
-	        quadcode = currentItem.getQuadcode();
-	
-	        // 2. Increase count and continue loop if quadcode equals max LOD / zoom
-	        if (currentItem.length === this._maxLOD) {
-	          count++;
-	          continue;
-	        }
-	
-	        // 3. Else, calculate screen-space error metric for quadcode
-	        if (this._screenSpaceError(currentItem)) {
-	          // 4. If error is sufficient...
-	
-	          // 4a. Remove parent item from the check list
-	          checkList.splice(count, 1);
-	
-	          // 4b. Add 4 child items to the check list
-	          checkList.push(this._requestTile(quadcode + '0', this));
-	          checkList.push(this._requestTile(quadcode + '1', this));
-	          checkList.push(this._requestTile(quadcode + '2', this));
-	          checkList.push(this._requestTile(quadcode + '3', this));
-	
-	          // 4d. Continue the loop without increasing count
-	          continue;
-	        } else {
-	          // 5. Else, increase count and continue loop
-	          count++;
-	        }
-	      }
-	    }
-	  }, {
-	    key: '_screenSpaceError',
-	    value: function _screenSpaceError(tile) {
-	      var minDepth = this._minLOD;
-	      var maxDepth = this._maxLOD;
-	
-	      var quadcode = tile.getQuadcode();
-	
-	      var camera = this._world.getCamera();
-	
-	      // Tweak this value to refine specific point that each quad is subdivided
-	      //
-	      // It's used to multiple the dimensions of the tile sides before
-	      // comparing against the tile distance from camera
-	      var quality = 3.0;
-	
-	      // 1. Return false if quadcode length equals maxDepth (stop dividing)
-	      if (quadcode.length === maxDepth) {
-	        return false;
-	      }
-	
-	      // 2. Return true if quadcode length is less than minDepth
-	      if (quadcode.length < minDepth) {
-	        return true;
-	      }
-	
-	      // 3. Return false if quadcode bounds are not in view frustum
-	      if (!this._tileInFrustum(tile)) {
-	        return false;
-	      }
-	
-	      var center = tile.getCenter();
-	
-	      // 4. Calculate screen-space error metric
-	      // TODO: Use closest distance to one of the 4 tile corners
-	      var dist = new _three2['default'].Vector3(center[0], 0, center[1]).sub(camera.position).length();
-	
-	      var error = quality * tile.getSide() / dist;
-	
-	      // 5. Return true if error is greater than 1.0, else return false
-	      return error > 1.0;
-	    }
-	  }, {
-	    key: '_removeTiles',
-	    value: function _removeTiles() {
-	      if (!this._tiles || !this._tiles.children) {
-	        return;
-	      }
-	
-	      for (var i = this._tiles.children.length - 1; i >= 0; i--) {
-	        this._tiles.remove(this._tiles.children[i]);
-	      }
-	
-	      if (!this._tilesPicking || !this._tilesPicking.children) {
-	        return;
-	      }
-	
-	      for (var i = this._tilesPicking.children.length - 1; i >= 0; i--) {
-	        this._tilesPicking.remove(this._tilesPicking.children[i]);
-	      }
-	    }
-	
-	    // Return a new tile instance
-	  }, {
-	    key: '_createTile',
-	    value: function _createTile(quadcode, layer) {}
-	
-	    // Get a cached tile or request a new one if not in cache
-	  }, {
-	    key: '_requestTile',
-	    value: function _requestTile(quadcode, layer) {
-	      var tile = this._tileCache.getTile(quadcode);
-	
-	      if (!tile) {
-	        // Set up a brand new tile
-	        tile = this._createTile(quadcode, layer);
-	
-	        // Add tile to cache, though it won't be ready yet as the data is being
-	        // requested from various places asynchronously
-	        this._tileCache.setTile(quadcode, tile);
-	      }
-	
-	      return tile;
-	    }
-	  }, {
-	    key: '_destroyTile',
-	    value: function _destroyTile(tile) {
-	      // Remove tile from scene
-	      this._tiles.remove(tile.getMesh());
-	
-	      // Delete any references to the tile within this component
-	
-	      // Call destory on tile instance
-	      tile.destroy();
-	    }
-	
-	    // Destroys the layer and removes it from the scene and memory
-	  }, {
-	    key: 'destroy',
-	    value: function destroy() {
-	      if (this._tiles.children) {
-	        // Remove all tiles
-	        for (var i = this._tiles.children.length - 1; i >= 0; i--) {
-	          this._tiles.remove(this._tiles.children[i]);
-	        }
-	      }
-	
-	      // Remove tile from picking scene
-	      this.removeFromPicking(this._tilesPicking);
-	
-	      if (this._tilesPicking.children) {
-	        // Remove all tiles
-	        for (var i = this._tilesPicking.children.length - 1; i >= 0; i--) {
-	          this._tilesPicking.remove(this._tilesPicking.children[i]);
-	        }
-	      }
-	
-	      this._tileCache.destroy();
-	      this._tileCache = null;
-	
-	      this._tiles = null;
-	      this._tilesPicking = null;
-	      this._frustum = null;
-	
-	      _get(Object.getPrototypeOf(TileLayer.prototype), 'destroy', this).call(this);
-	    }
-	  }]);
-	
-	  return TileLayer;
+		_inherits(TileLayer, _Layer);
+	
+		function TileLayer(options) {
+			var _this = this;
+	
+			_classCallCheck(this, TileLayer);
+	
+			var defaults = {
+				picking: false,
+				maxCache: 2000,
+				minLOD: 3,
+				maxLOD: 18
+			};
+	
+			var _options = (0, _lodashAssign2['default'])({}, defaults, options);
+	
+			_get(Object.getPrototypeOf(TileLayer.prototype), 'constructor', this).call(this, _options);
+	
+			this.worldPointZero = new _three2['default'].Vector3(0, 20, 0);
+			this.outputDone = false;
+			this.tilesLoaded = 0;
+	
+			this._tileCache = new _TileCache2['default'](this._options.maxCache, function (tile) {
+				_this._destroyTile(tile);
+			});
+	
+			// List of tiles from the previous LOD calculation
+			this._tileList = [];
+	
+			// TODO: Work out why changing the minLOD causes loads of issues
+			this._minLOD = this._options.minLOD;
+			this._maxLOD = this._options.maxLOD;
+	
+			this._frustum = new _three2['default'].Frustum();
+			this._tiles = new _three2['default'].Object3D();
+			this._tilesPicking = new _three2['default'].Object3D();
+		}
+	
+		_createClass(TileLayer, [{
+			key: '_onAdd',
+			value: function _onAdd(world) {
+				this.addToPicking(this._tilesPicking);
+				this.add(this._tiles);
+			}
+		}, {
+			key: '_updateFrustum',
+			value: function _updateFrustum() {
+				var camera = this._world.getCamera();
+				var projScreenMatrix = new _three2['default'].Matrix4();
+				projScreenMatrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+	
+				this._frustum.setFromMatrix(camera.projectionMatrix);
+				this._frustum.setFromMatrix(new _three2['default'].Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
+			}
+		}, {
+			key: '_tileInFrustum',
+			value: function _tileInFrustum(tile) {
+				return true;
+				// var bounds = tile.getBounds();
+				// return this._frustum.intersectsBox(new THREE.Box3(new THREE.Vector3(bounds[0], 0, bounds[3]), new THREE.Vector3(bounds[2], 0, bounds[1])));
+			}
+	
+			// Update and output tiles from the previous LOD checklist
+		}, {
+			key: '_outputTiles',
+			value: function _outputTiles() {
+				var _this2 = this;
+	
+				if (!this._tiles || this.outputDone) {
+					return;
+				}
+	
+				var allTilesReady = true;
+				// this.outputDone = true;
+	
+				// Remove all tiles from layer
+				// this._removeTiles();
+	
+				// Add / re-add tiles
+				this._tileList.forEach(function (tile) {
+					// Are the mesh and texture ready?
+					//
+					// If yes, continue
+					// If no, skip
+					if (!tile.isReady()) {
+						allTilesReady = false;
+						return;
+					}
+	
+					// Add tile to layer (and to scene) if not already there
+					_this2._tiles.add(tile.getMesh());
+	
+					if (!tile._counted) {
+						_this2.tilesLoaded++;
+						tile._counted = true;
+					}
+	
+					if (tile.getPickingMesh()) {
+						_this2._tilesPicking.add(tile.getPickingMesh());
+					}
+				});
+	
+				// Stop when all tiles are ready
+				if (allTilesReady) {
+					this.outputDone = true;
+					console.log('All tiles loaded!', this.tilesLoaded);
+				} else {
+					// console.log('Tiles loading: ' + this.tilesLoaded + ' of ' + this._tileList.length);
+				}
+			}
+	
+			// Works out tiles in the view frustum and stores them in an array
+			//
+			// Does not output the tiles, deferring this to _outputTiles()
+		}, {
+			key: '_calculateLOD',
+			value: function _calculateLOD() {
+				var _this3 = this;
+	
+				if (this._stop || !this._world) {
+					return;
+				}
+	
+				// var start = performance.now();
+	
+				var camera = this._world.getCamera();
+	
+				// 1. Update and retrieve camera frustum
+				this._updateFrustum(this._frustum, camera);
+	
+				// 2. Add the four root items of the quadtree to a check list
+				var checkList = this._checklist;
+				checkList = [];
+				checkList.push(this._requestTile('0', this));
+				checkList.push(this._requestTile('1', this));
+				checkList.push(this._requestTile('2', this));
+				checkList.push(this._requestTile('3', this));
+	
+				// 3. Call Divide, passing in the check list
+				this._divide(checkList);
+	
+				// // 4. Remove all tiles from layer
+				//
+				// Moved to _outputTiles() for now
+				// this._removeTiles();
+	
+				// Order tile-list by zoom so nearest tiles are requested first
+				checkList.sort(function (a, b) {
+					return a._quadcode.length < b._quadcode.length;
+				});
+	
+				// 5. Filter the tiles remaining in the check list
+				this._tileList = checkList.filter(function (tile, index) {
+					// Skip tile if it's not in the current view frustum
+					// if (!this._tileInFrustum(tile)) {
+					//   return false;
+					// }
+	
+					if (_this3._options.distance && _this3._options.distance > 0) {
+						// TODO: Can probably speed this up
+						var center = tile.getCenter();
+						var dist = new _three2['default'].Vector3(center[0], 0, center[1]).sub(_this3.worldPointZero).length();
+	
+						// Manual distance limit to cut down on tiles so far away
+						if (dist > _this3._options.distance) {
+							return false;
+						}
+					}
+	
+					// Does the tile have a mesh?
+					//
+					// If yes, continue
+					// If no, generate tile mesh, request texture and skip
+					if (!tile.getMesh()) {
+						tile.requestTileAsync();
+					}
+	
+					return true;
+	
+					// Are the mesh and texture ready?
+					//
+					// If yes, continue
+					// If no, skip
+					// if (!tile.isReady()) {
+					//   return;
+					// }
+					//
+					// // Add tile to layer (and to scene)
+					// this._tiles.add(tile.getMesh());
+				});
+	
+				// console.log(performance.now() - start);
+			}
+		}, {
+			key: '_divide',
+			value: function _divide(checkList) {
+				var count = 0;
+				var currentItem;
+				var quadcode;
+	
+				// 1. Loop until count equals check list length
+				while (count != checkList.length) {
+					currentItem = checkList[count];
+					quadcode = currentItem.getQuadcode();
+	
+					// 2. Increase count and continue loop if quadcode equals max LOD / zoom
+					if (currentItem.length === this._maxLOD) {
+						count++;
+						continue;
+					}
+	
+					// 3. Else, calculate screen-space error metric for quadcode
+					if (this._screenSpaceError(currentItem)) {
+						// 4. If error is sufficient...
+	
+						// 4a. Remove parent item from the check list
+						checkList.splice(count, 1);
+	
+						// 4b. Add 4 child items to the check list
+						checkList.push(this._requestTile(quadcode + '0', this));
+						checkList.push(this._requestTile(quadcode + '1', this));
+						checkList.push(this._requestTile(quadcode + '2', this));
+						checkList.push(this._requestTile(quadcode + '3', this));
+	
+						// 4d. Continue the loop without increasing count
+						continue;
+					} else {
+						// 5. Else, increase count and continue loop
+						count++;
+					}
+				}
+			}
+		}, {
+			key: '_screenSpaceError',
+			value: function _screenSpaceError(tile) {
+				var minDepth = this._minLOD;
+				var maxDepth = this._maxLOD;
+	
+				var quadcode = tile.getQuadcode();
+	
+				var camera = this._world.getCamera();
+	
+				// Tweak this value to refine specific point that each quad is subdivided
+				//
+				// It's used to multiple the dimensions of the tile sides before
+				// comparing against the tile distance from camera
+				var quality = 3.0;
+	
+				// 1. Return false if quadcode length equals maxDepth (stop dividing)
+				if (quadcode.length === maxDepth) {
+					return false;
+				}
+	
+				// 2. Return true if quadcode length is less than minDepth
+				if (quadcode.length < minDepth) {
+					return true;
+				}
+	
+				// 3. Return false if quadcode bounds are not in view frustum
+				if (!this._tileInFrustum(tile)) {
+					return false;
+				}
+	
+				var center = tile.getCenter();
+	
+				// 4. Calculate screen-space error metric
+				// TODO: Use closest distance to one of the 4 tile corners
+				var dist = new _three2['default'].Vector3(center[0], 0, center[1]).sub(this.worldPointZero).length();
+	
+				var error = quality * tile.getSide() / dist;
+	
+				// 5. Return true if error is greater than 1.0, else return false
+				return error > 1.0;
+			}
+		}, {
+			key: '_removeTiles',
+			value: function _removeTiles() {
+				if (!this._tiles || !this._tiles.children) {
+					return;
+				}
+	
+				for (var i = this._tiles.children.length - 1; i >= 0; i--) {
+					this._tiles.remove(this._tiles.children[i]);
+				}
+	
+				if (!this._tilesPicking || !this._tilesPicking.children) {
+					return;
+				}
+	
+				for (var i = this._tilesPicking.children.length - 1; i >= 0; i--) {
+					this._tilesPicking.remove(this._tilesPicking.children[i]);
+				}
+			}
+	
+			// Return a new tile instance
+		}, {
+			key: '_createTile',
+			value: function _createTile(quadcode, layer) {}
+	
+			// Get a cached tile or request a new one if not in cache
+		}, {
+			key: '_requestTile',
+			value: function _requestTile(quadcode, layer) {
+				var tile = this._tileCache.getTile(quadcode);
+	
+				if (!tile) {
+					// Set up a brand new tile
+					tile = this._createTile(quadcode, layer);
+	
+					// Add tile to cache, though it won't be ready yet as the data is being
+					// requested from various places asynchronously
+					this._tileCache.setTile(quadcode, tile);
+				}
+	
+				return tile;
+			}
+		}, {
+			key: '_destroyTile',
+			value: function _destroyTile(tile) {
+				// Remove tile from scene
+				this._tiles.remove(tile.getMesh());
+	
+				// Delete any references to the tile within this component
+	
+				// Call destory on tile instance
+				tile.destroy();
+			}
+	
+			// Destroys the layer and removes it from the scene and memory
+		}, {
+			key: 'destroy',
+			value: function destroy() {
+				if (this._tiles.children) {
+					// Remove all tiles
+					for (var i = this._tiles.children.length - 1; i >= 0; i--) {
+						this._tiles.remove(this._tiles.children[i]);
+					}
+				}
+	
+				// Remove tile from picking scene
+				this.removeFromPicking(this._tilesPicking);
+	
+				if (this._tilesPicking.children) {
+					// Remove all tiles
+					for (var i = this._tilesPicking.children.length - 1; i >= 0; i--) {
+						this._tilesPicking.remove(this._tilesPicking.children[i]);
+					}
+				}
+	
+				this._tileCache.destroy();
+				this._tileCache = null;
+	
+				this._tiles = null;
+				this._tilesPicking = null;
+				this._frustum = null;
+	
+				_get(Object.getPrototypeOf(TileLayer.prototype), 'destroy', this).call(this);
+			}
+		}]);
+	
+		return TileLayer;
 	})(_Layer3['default']);
 	
 	exports['default'] = TileLayer;
 	module.exports = exports['default'];
 
 /***/ },
-/* 41 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -9770,7 +9649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _lruCache = __webpack_require__(42);
+	var _lruCache = __webpack_require__(38);
 	
 	var _lruCache2 = _interopRequireDefault(_lruCache);
 	
@@ -9838,18 +9717,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.tileCache = noNew;
 
 /***/ },
-/* 42 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = LRUCache
 	
 	// This will be a proper iterable 'Map' in engines that support it,
 	// or a fakey-fake PseudoMap in older versions.
-	var Map = __webpack_require__(43)
-	var util = __webpack_require__(46)
+	var Map = __webpack_require__(39)
+	var util = __webpack_require__(42)
 	
 	// A linked list to keep track of recently-used-ness
-	var Yallist = __webpack_require__(49)
+	var Yallist = __webpack_require__(45)
 	
 	// use symbols if possible, otherwise just _props
 	var symbols = {}
@@ -10313,7 +10192,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 43 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {if (process.env.npm_package_name === 'pseudomap' &&
@@ -10323,13 +10202,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (typeof Map === 'function' && !process.env.TEST_PSEUDOMAP) {
 	  module.exports = Map
 	} else {
-	  module.exports = __webpack_require__(45)
+	  module.exports = __webpack_require__(41)
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(44)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)))
 
 /***/ },
-/* 44 */
+/* 40 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -10515,7 +10394,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 45 */
+/* 41 */
 /***/ function(module, exports) {
 
 	var hasOwnProperty = Object.prototype.hasOwnProperty
@@ -10634,7 +10513,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 46 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -11162,7 +11041,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	exports.isPrimitive = isPrimitive;
 	
-	exports.isBuffer = __webpack_require__(47);
+	exports.isBuffer = __webpack_require__(43);
 	
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -11206,7 +11085,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(48);
+	exports.inherits = __webpack_require__(44);
 	
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -11224,10 +11103,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(44)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(40)))
 
 /***/ },
-/* 47 */
+/* 43 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -11238,7 +11117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 48 */
+/* 44 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -11267,7 +11146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 49 */
+/* 45 */
 /***/ function(module, exports) {
 
 	module.exports = Yallist
@@ -11633,7 +11512,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 50 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -11650,11 +11529,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _Tile2 = __webpack_require__(51);
+	var _Tile2 = __webpack_require__(47);
 	
 	var _Tile3 = _interopRequireDefault(_Tile2);
 	
-	var _vendorBoxHelper = __webpack_require__(52);
+	var _vendorBoxHelper = __webpack_require__(48);
 	
 	var _vendorBoxHelper2 = _interopRequireDefault(_vendorBoxHelper);
 	
@@ -11815,6 +11694,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      // Load image
 	      image.src = url;
+	      // console.log('tile', url);
 	
 	      this._image = image;
 	    }
@@ -11842,7 +11722,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.imageTile = noNew;
 
 /***/ },
-/* 51 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -12006,7 +11886,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function _getTileURL(urlParams) {
 	      if (!urlParams.s) {
 	        // Default to a random choice of a, b or c
-	        urlParams.s = String.fromCharCode(97 + Math.floor(Math.random() * 3));
+	        urlParams.s = "a"; // String.fromCharCode(97 + Math.floor(Math.random() * 3));
 	      }
 	
 	      tileURLRegex.lastIndex = 0;
@@ -12095,7 +11975,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 52 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -12185,7 +12065,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 53 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -12202,7 +12082,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _TileLayer2 = __webpack_require__(40);
+	var _TileLayer2 = __webpack_require__(36);
 	
 	var _TileLayer3 = _interopRequireDefault(_TileLayer2);
 	
@@ -12210,11 +12090,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
 	
-	var _GeoJSONTile = __webpack_require__(54);
+	var _GeoJSONTile = __webpack_require__(50);
 	
 	var _GeoJSONTile2 = _interopRequireDefault(_GeoJSONTile);
 	
-	var _lodashThrottle = __webpack_require__(33);
+	var _lodashThrottle = __webpack_require__(29);
 	
 	var _lodashThrottle2 = _interopRequireDefault(_lodashThrottle);
 	
@@ -12259,8 +12139,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, GeoJSONTileLayer);
 	
 	    var defaults = {
-	      maxLOD: 14,
-	      distance: 30000
+	      maxLOD: 16,
+	      distance: 4000
 	    };
 	
 	    options = (0, _lodashAssign2['default'])({}, defaults, options);
@@ -12315,7 +12195,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '_onWorldMove',
 	    value: function _onWorldMove(latlon, point) {
 	      this._pauseOutput = false;
-	      this._calculateLOD();
+	      // this._calculateLOD();
 	    }
 	
 	    // Pause updates during control movement for less visual jank
@@ -12379,7 +12259,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.geoJSONTileLayer = noNew;
 
 /***/ },
-/* 54 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -12396,13 +12276,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _Tile2 = __webpack_require__(51);
+	var _Tile2 = __webpack_require__(47);
 	
 	var _Tile3 = _interopRequireDefault(_Tile2);
 	
-	var _GeoJSONLayer = __webpack_require__(55);
+	var _GeoJSONLayer = __webpack_require__(51);
 	
-	var _vendorBoxHelper = __webpack_require__(52);
+	var _vendorBoxHelper = __webpack_require__(48);
 	
 	var _vendorBoxHelper2 = _interopRequireDefault(_vendorBoxHelper);
 	
@@ -12410,7 +12290,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _reqwest = __webpack_require__(57);
+	var _reqwest = __webpack_require__(53);
 	
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 	
@@ -12424,15 +12304,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// import Offset from 'polygon-offset';
 	
-	var _utilGeoJSON = __webpack_require__(59);
+	var _utilGeoJSON = __webpack_require__(55);
 	
 	var _utilGeoJSON2 = _interopRequireDefault(_utilGeoJSON);
 	
-	var _utilBuffer = __webpack_require__(65);
+	var _utilBuffer = __webpack_require__(61);
 	
 	var _utilBuffer2 = _interopRequireDefault(_utilBuffer);
 	
-	var _enginePickingMaterial = __webpack_require__(66);
+	var _enginePickingMaterial = __webpack_require__(62);
 	
 	var _enginePickingMaterial2 = _interopRequireDefault(_enginePickingMaterial);
 	
@@ -12783,7 +12663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.geoJSONTile = noNew;
 
 /***/ },
-/* 55 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -12808,7 +12688,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// For example, only allow polygons to be interactive via a polygonInteractive
 	// option
 	
-	var _LayerGroup2 = __webpack_require__(56);
+	var _LayerGroup2 = __webpack_require__(52);
 	
 	var _LayerGroup3 = _interopRequireDefault(_LayerGroup2);
 	
@@ -12816,31 +12696,31 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _lodashAssign2 = _interopRequireDefault(_lodashAssign);
 	
-	var _reqwest = __webpack_require__(57);
+	var _reqwest = __webpack_require__(53);
 	
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 	
-	var _utilGeoJSON = __webpack_require__(59);
+	var _utilGeoJSON = __webpack_require__(55);
 	
 	var _utilGeoJSON2 = _interopRequireDefault(_utilGeoJSON);
 	
-	var _utilBuffer = __webpack_require__(65);
+	var _utilBuffer = __webpack_require__(61);
 	
 	var _utilBuffer2 = _interopRequireDefault(_utilBuffer);
 	
-	var _enginePickingMaterial = __webpack_require__(66);
+	var _enginePickingMaterial = __webpack_require__(62);
 	
 	var _enginePickingMaterial2 = _interopRequireDefault(_enginePickingMaterial);
 	
-	var _geometryPolygonLayer = __webpack_require__(68);
+	var _geometryPolygonLayer = __webpack_require__(64);
 	
 	var _geometryPolygonLayer2 = _interopRequireDefault(_geometryPolygonLayer);
 	
-	var _geometryPolylineLayer = __webpack_require__(69);
+	var _geometryPolylineLayer = __webpack_require__(65);
 	
 	var _geometryPolylineLayer2 = _interopRequireDefault(_geometryPolylineLayer);
 	
-	var _geometryPointLayer = __webpack_require__(70);
+	var _geometryPointLayer = __webpack_require__(66);
 	
 	var _geometryPointLayer2 = _interopRequireDefault(_geometryPointLayer);
 	
@@ -13377,7 +13257,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.geoJSONLayer = noNew;
 
 /***/ },
-/* 56 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -13394,7 +13274,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _Layer2 = __webpack_require__(30);
+	var _Layer2 = __webpack_require__(24);
 	
 	var _Layer3 = _interopRequireDefault(_Layer2);
 	
@@ -13470,7 +13350,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.layerGroup = noNew;
 
 /***/ },
-/* 57 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13494,7 +13374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  } else {
 	    var XHR2
 	    try {
-	      XHR2 = __webpack_require__(58)
+	      XHR2 = __webpack_require__(54)
 	    } catch (ex) {
 	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
 	    }
@@ -14106,13 +13986,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 58 */
+/* 54 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 59 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -14129,19 +14009,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _topojson2 = __webpack_require__(60);
+	var _topojson2 = __webpack_require__(56);
 	
 	var _topojson3 = _interopRequireDefault(_topojson2);
 	
-	var _geojsonMerge = __webpack_require__(61);
+	var _geojsonMerge = __webpack_require__(57);
 	
 	var _geojsonMerge2 = _interopRequireDefault(_geojsonMerge);
 	
-	var _earcut = __webpack_require__(63);
+	var _earcut = __webpack_require__(59);
 	
 	var _earcut2 = _interopRequireDefault(_earcut);
 	
-	var _extrudePolygon = __webpack_require__(64);
+	var _extrudePolygon = __webpack_require__(60);
 	
 	var _extrudePolygon2 = _interopRequireDefault(_extrudePolygon);
 	
@@ -14390,7 +14270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 60 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -14942,10 +14822,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	})));
 
 /***/ },
-/* 61 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var normalize = __webpack_require__(62);
+	var normalize = __webpack_require__(58);
 	
 	module.exports = function(inputs) {
 	    return {
@@ -14958,7 +14838,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 62 */
+/* 58 */
 /***/ function(module, exports) {
 
 	module.exports = normalize;
@@ -15007,7 +14887,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 63 */
+/* 59 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15657,7 +15537,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 64 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, "__esModule", {
@@ -15783,7 +15663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 65 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -16054,7 +15934,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 66 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -16067,7 +15947,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _three2 = _interopRequireDefault(_three);
 	
-	var _PickingShader = __webpack_require__(67);
+	var _PickingShader = __webpack_require__(63);
 	
 	var _PickingShader2 = _interopRequireDefault(_PickingShader);
 	
@@ -16109,7 +15989,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 67 */
+/* 63 */
 /***/ function(module, exports) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -16133,7 +16013,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 68 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -16166,7 +16046,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// TODO: Allow _setBufferAttributes to use a custom function passed in to
 	// generate a custom mesh
 	
-	var _Layer2 = __webpack_require__(30);
+	var _Layer2 = __webpack_require__(24);
 	
 	var _Layer3 = _interopRequireDefault(_Layer2);
 	
@@ -16182,19 +16062,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _geoPoint = __webpack_require__(6);
 	
-	var _earcut2 = __webpack_require__(63);
+	var _earcut2 = __webpack_require__(59);
 	
 	var _earcut3 = _interopRequireDefault(_earcut2);
 	
-	var _utilExtrudePolygon = __webpack_require__(64);
+	var _utilExtrudePolygon = __webpack_require__(60);
 	
 	var _utilExtrudePolygon2 = _interopRequireDefault(_utilExtrudePolygon);
 	
-	var _enginePickingMaterial = __webpack_require__(66);
+	var _enginePickingMaterial = __webpack_require__(62);
 	
 	var _enginePickingMaterial2 = _interopRequireDefault(_enginePickingMaterial);
 	
-	var _utilBuffer = __webpack_require__(65);
+	var _utilBuffer = __webpack_require__(61);
 	
 	var _utilBuffer2 = _interopRequireDefault(_utilBuffer);
 	
@@ -16299,7 +16179,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // TODO: Find a way to properly remove this listener on destroy
 	      this._world.on('pick-' + this._pickingId, function (point2d, point3d, intersects) {
 	        // Re-emit click event from the layer
-	        console.log('>>> click');
+	        // console.log('>>> click');
 	        _this.emit('click', _this, point2d, point3d, intersects);
 	      });
 	    }
@@ -16811,7 +16691,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.polygonLayer = noNew;
 
 /***/ },
-/* 69 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -16846,7 +16726,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// TODO: Allow _setBufferAttributes to use a custom function passed in to
 	// generate a custom mesh
 	
-	var _Layer2 = __webpack_require__(30);
+	var _Layer2 = __webpack_require__(24);
 	
 	var _Layer3 = _interopRequireDefault(_Layer2);
 	
@@ -16862,11 +16742,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _geoPoint = __webpack_require__(6);
 	
-	var _enginePickingMaterial = __webpack_require__(66);
+	var _enginePickingMaterial = __webpack_require__(62);
 	
 	var _enginePickingMaterial2 = _interopRequireDefault(_enginePickingMaterial);
 	
-	var _utilBuffer = __webpack_require__(65);
+	var _utilBuffer = __webpack_require__(61);
 	
 	var _utilBuffer2 = _interopRequireDefault(_utilBuffer);
 	
@@ -17332,7 +17212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.polylineLayer = noNew;
 
 /***/ },
-/* 70 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -17373,7 +17253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	// How much control should this layer support? Perhaps a different or custom
 	// layer would be better suited for animation, for example.
 	
-	var _Layer2 = __webpack_require__(30);
+	var _Layer2 = __webpack_require__(24);
 	
 	var _Layer3 = _interopRequireDefault(_Layer2);
 	
@@ -17389,11 +17269,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	var _geoPoint = __webpack_require__(6);
 	
-	var _enginePickingMaterial = __webpack_require__(66);
+	var _enginePickingMaterial = __webpack_require__(62);
 	
 	var _enginePickingMaterial2 = _interopRequireDefault(_enginePickingMaterial);
 	
-	var _utilBuffer = __webpack_require__(65);
+	var _utilBuffer = __webpack_require__(61);
 	
 	var _utilBuffer2 = _interopRequireDefault(_utilBuffer);
 	
@@ -17840,7 +17720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.pointLayer = noNew;
 
 /***/ },
-/* 71 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -17855,7 +17735,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _GeoJSONTileLayer2 = __webpack_require__(53);
+	var _GeoJSONTileLayer2 = __webpack_require__(49);
 	
 	var _GeoJSONTileLayer3 = _interopRequireDefault(_GeoJSONTileLayer2);
 	
@@ -17890,7 +17770,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.topoJSONTileLayer = noNew;
 
 /***/ },
-/* 72 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -17905,7 +17785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var _GeoJSONLayer2 = __webpack_require__(55);
+	var _GeoJSONLayer2 = __webpack_require__(51);
 	
 	var _GeoJSONLayer3 = _interopRequireDefault(_GeoJSONLayer2);
 	
@@ -17941,7 +17821,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.topoJSONLayer = noNew;
 
 /***/ },
-/* 73 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	Object.defineProperty(exports, '__esModule', {
@@ -17952,19 +17832,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	// TODO: A lot of these utils don't need to be in separate, tiny files
 	
-	var _wrapNum = __webpack_require__(74);
+	var _wrapNum = __webpack_require__(70);
 	
 	var _wrapNum2 = _interopRequireDefault(_wrapNum);
 	
-	var _extrudePolygon = __webpack_require__(64);
+	var _extrudePolygon = __webpack_require__(60);
 	
 	var _extrudePolygon2 = _interopRequireDefault(_extrudePolygon);
 	
-	var _GeoJSON = __webpack_require__(59);
+	var _GeoJSON = __webpack_require__(55);
 	
 	var _GeoJSON2 = _interopRequireDefault(_GeoJSON);
 	
-	var _Buffer = __webpack_require__(65);
+	var _Buffer = __webpack_require__(61);
 	
 	var _Buffer2 = _interopRequireDefault(_Buffer);
 	
@@ -17979,7 +17859,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 74 */
+/* 70 */
 /***/ function(module, exports) {
 
 	Object.defineProperty(exports, "__esModule", {

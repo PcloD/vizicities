@@ -126,7 +126,7 @@ class Tile {
   _getTileURL(urlParams) {
     if (!urlParams.s) {
       // Default to a random choice of a, b or c
-      urlParams.s = String.fromCharCode(97 + Math.floor(Math.random() * 3));
+      urlParams.s = "a"; // String.fromCharCode(97 + Math.floor(Math.random() * 3));
     }
 
     tileURLRegex.lastIndex = 0;

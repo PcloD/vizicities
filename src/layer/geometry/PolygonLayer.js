@@ -109,7 +109,7 @@ class PolygonLayer extends Layer {
     // TODO: Find a way to properly remove this listener on destroy
     this._world.on('pick-' + this._pickingId, (point2d, point3d, intersects) => {
       // Re-emit click event from the layer
-      console.log('>>> click');
+      // console.log('>>> click');
       this.emit('click', this, point2d, point3d, intersects);
     });
   }

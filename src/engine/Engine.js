@@ -1,11 +1,11 @@
 import EventEmitter from 'eventemitter3';
 import THREE from 'three';
 import Scene from './Scene';
-import DOMScene3D from './DOMScene3D';
-import DOMScene2D from './DOMScene2D';
+// import DOMScene3D from './DOMScene3D';
+// import DOMScene2D from './DOMScene2D';
 import Renderer from './Renderer';
-import DOMRenderer3D from './DOMRenderer3D';
-import DOMRenderer2D from './DOMRenderer2D';
+// import DOMRenderer3D from './DOMRenderer3D';
+// import DOMRenderer2D from './DOMRenderer2D';
 import Camera from './Camera';
 import Picking from './Picking';
 import EffectComposer from './EffectComposer';
@@ -25,13 +25,13 @@ class Engine extends EventEmitter {
     this._world = world;
 
     this._scene = Scene;
-    this._domScene3D = DOMScene3D;
-    this._domScene2D = DOMScene2D;
+    // this._domScene3D = DOMScene3D;
+    // this._domScene2D = DOMScene2D;
 
     var antialias = (this._world.options.postProcessing) ? false : true;
     this._renderer = Renderer(container, antialias);
-    this._domRenderer3D = DOMRenderer3D(container);
-    this._domRenderer2D = DOMRenderer2D(container);
+    // this._domRenderer3D = DOMRenderer3D(container);
+    // this._domRenderer2D = DOMRenderer2D(container);
 
     this._camera = Camera(container);
 
@@ -110,8 +110,8 @@ class Engine extends EventEmitter {
     // this._renderer.render(this._picking._pickingScene, this._camera);
 
     // Render DOM scenes
-    this._domRenderer3D.render(this._domScene3D, this._camera);
-    this._domRenderer2D.render(this._domScene2D, this._camera);
+    // this._domRenderer3D.render(this._domScene3D, this._camera);
+    // this._domRenderer2D.render(this._domScene2D, this._camera);
 
     this.emit('postRender');
   }
@@ -145,39 +145,39 @@ class Engine extends EventEmitter {
       }
     };
 
-    for (var i = this._domScene3D.children.length - 1; i >= 0; i--) {
-      child = this._domScene3D.children[i];
+    // for (var i = this._domScene3D.children.length - 1; i >= 0; i--) {
+    //   child = this._domScene3D.children[i];
 
-      if (!child) {
-        continue;
-      }
+    //   if (!child) {
+    //     continue;
+    //   }
 
-      this._domScene3D.remove(child);
-    };
+    //   this._domScene3D.remove(child);
+    // };
 
-    for (var i = this._domScene2D.children.length - 1; i >= 0; i--) {
-      child = this._domScene2D.children[i];
+    // for (var i = this._domScene2D.children.length - 1; i >= 0; i--) {
+    //   child = this._domScene2D.children[i];
 
-      if (!child) {
-        continue;
-      }
+    //   if (!child) {
+    //     continue;
+    //   }
 
-      this._domScene2D.remove(child);
-    };
+    //   this._domScene2D.remove(child);
+    // };
 
     this._picking.destroy();
     this._picking = null;
 
     this._world = null;
     this._scene = null;
-    this._domScene3D = null;
-    this._domScene2D = null;
+    // this._domScene3D = null;
+    // this._domScene2D = null;
 
     this._composer = null;
     this._renderer = null;
 
-    this._domRenderer3D = null;
-    this._domRenderer2D = null;
+    // this._domRenderer3D = null;
+    // this._domRenderer2D = null;
     this._camera = null;
     this._clock = null;
     this._frustum = null;

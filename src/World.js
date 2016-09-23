@@ -20,7 +20,7 @@ class World extends EventEmitter {
       postProcessing: false
     };
 
-    this.version = '1.0 build 36 [bd]';
+    this.version = '1.0 build 87 [bd]';
 
     this.options = extend({}, defaults, options);
 
@@ -223,8 +223,8 @@ class World extends EventEmitter {
     if (layer.isOutput() && layer.isOutputToScene()) {
       // Could move this into Layer but it'll do here for now
       this._engine._scene.add(layer._object3D);
-      this._engine._domScene3D.add(layer._domObject3D);
-      this._engine._domScene2D.add(layer._domObject2D);
+      // this._engine._domScene3D.add(layer._domObject3D);
+      // this._engine._domScene2D.add(layer._domObject2D);
     }
 
     this.emit('layerAdded', layer);
@@ -242,8 +242,8 @@ class World extends EventEmitter {
 
     if (layer.isOutput() && layer.isOutputToScene()) {
       this._engine._scene.remove(layer._object3D);
-      this._engine._domScene3D.remove(layer._domObject3D);
-      this._engine._domScene2D.remove(layer._domObject2D);
+      // this._engine._domScene3D.remove(layer._domObject3D);
+      // this._engine._domScene2D.remove(layer._domObject2D);
     }
 
     this.emit('layerRemoved');

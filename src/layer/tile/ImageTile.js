@@ -141,6 +141,7 @@ class ImageTile extends Tile {
 
     // Load image
     image.src = url;
+    // console.log('tile', url);
 
     this._image = image;
   }

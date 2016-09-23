@@ -58,7 +58,8 @@ import extend from 'lodash.assign';
 class ImageTileLayer extends TileLayer {
   constructor(path, options) {
     var defaults = {
-      distance: 100000
+      distance: 100000,
+      minLOD: 4
     };
 
     options = extend({}, defaults, options);
@@ -96,7 +97,7 @@ class ImageTileLayer extends TileLayer {
   }
 
   _onWorldUpdate() {
-    this._calculateLOD();
+    // this._calculateLOD();
     this._outputTiles();
   }
 

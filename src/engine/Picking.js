@@ -53,18 +53,19 @@ class Picking {
 
 		// this.mousedown = true;
 
-		this._world._container.addEventListener('mousedown', this._mouseDownHandler, false);
-		this._world._container.addEventListener('mousemove', this._mouseHandler, false);
-		this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
+		this._world._container.addEventListener('mousedown', this._mouseHandler, false);
+		// this._world._container.addEventListener('mousedown', this._mouseDownHandler, false);
+		// this._world._container.addEventListener('mousemove', this._mouseHandler, false);
+		// this._world._container.addEventListener('mouseup', this._mouseUpHandler, false);
 
 		this._world.on('move', this._onWorldMove, this);
 	}
 
 	_onMouse(event) {
 
-		if (!this.mousedown) {
-			return;
-		}
+		// if (!this.mousedown) {
+		// 	return;
+		// }
 
 		var point = Point(event.clientX, event.clientY);
 
@@ -129,7 +130,7 @@ class Picking {
 		// Interpret the pixel as an ID
 		var id = (this._pixelBuffer[index * 4 + 2] * 255 * 255) + (this._pixelBuffer[index * 4 + 1] * 255) + (this._pixelBuffer[index * 4 + 0]);
 
-		console.log(point.x, point.y, this._pickingTexture.height, this._pickingTexture.width); // ? ? ?
+		// console.log(point.x, point.y, this._pickingTexture.height, this._pickingTexture.width); // ? ? ?
 
 		// Skip if ID is 16646655 (white) as the background returns this
 		if (id === 16646655) {
